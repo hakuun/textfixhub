@@ -1,0 +1,21 @@
+/** 75 common English adjectives for the Random Sentence Generator */
+export const ADJECTIVES: string[] = [
+  'angry', 'anxious', 'big', 'bitter', 'black', 'blue', 'bold', 'brave',
+  'bright', 'broad', 'brown', 'busy', 'calm', 'careful', 'cheap', 'cheerful',
+  'clean', 'clear', 'clever', 'cold', 'comfortable', 'common', 'confident',
+  'cool', 'cruel', 'curious', 'dark', 'deep', 'dry', 'dull', 'eager',
+  'elegant', 'empty', 'excited', 'fair', 'faithful', 'famous', 'fast', 'fat',
+  'fierce', 'flat', 'foolish', 'free', 'fresh', 'friendly', 'funny', 'gentle',
+  'glad', 'golden', 'good', 'grand', 'gray', 'great', 'green', 'happy', 'hard',
+  'healthy', 'heavy', 'honest', 'hot', 'huge', 'hungry', 'kind', 'large',
+  'lazy', 'light', 'little', 'lively', 'long', 'loud', 'lovely', 'low',
+  'lucky', 'mad', 'modern', 'narrow', 'nervous', 'new', 'nice', 'noisy',
+  'odd', 'old', 'pale', 'patient', 'plain', 'pleasant', 'polite', 'poor',
+  'pretty', 'proud', 'quick', 'quiet', 'rare', 'red', 'rich', 'rough', 'round',
+  'rude', 'sad', 'scared', 'secret', 'serious', 'sharp', 'shy', 'silent',
+  'silly', 'simple', 'slow', 'small', 'smart', 'smooth', 'soft', 'solid',
+  'sour', 'square', 'steep', 'stiff', 'strange', 'strong', 'stupid', 'sudden',
+  'sweet', 'tall', 'tender', 'thin', 'tidy', 'tight', 'tiny', 'tired', 'tough',
+  'ugly', 'useful', 'warm', 'weak', 'wet', 'white', 'wide', 'wild', 'wise',
+  'wonderful', 'wooden', 'worried', 'yellow', 'young',
+];
