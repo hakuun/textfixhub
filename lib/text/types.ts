@@ -9,24 +9,45 @@ export interface ToolMeta {
 }
 
 /** Alphabetizer options */
+export type SeparatorPreset = 'newline' | 'comma' | 'semicolon' | 'space' | 'custom';
+
 export interface AlphabetizerOptions {
   caseSensitive: boolean;
   reverse: boolean;
   removeDuplicates: boolean;
+  inputSeparator: SeparatorPreset;
+  customInputSeparator: string;
+  outputSeparator: SeparatorPreset;
+  customOutputSeparator: string;
+  removeHTML: boolean;
 }
 
 export const DEFAULT_ALPHABETIZER_OPTIONS: AlphabetizerOptions = {
   caseSensitive: false,
   reverse: false,
   removeDuplicates: false,
+  inputSeparator: 'newline',
+  customInputSeparator: '',
+  outputSeparator: 'newline',
+  customOutputSeparator: '',
+  removeHTML: false,
 };
 
 /** Line Break Remover mode */
-export type LineBreakMode = 'replace-with-space' | 'remove-entirely';
+export type LineBreakMode = 'replace-with-space' | 'remove-entirely' | 'remove-with-space';
 
-/** Sentence Counter result */
-export interface SentenceCountResult {
-  count: number;
+/** Sentence Counter — full text statistics */
+export interface TextStatistics {
+  sentenceCount: number;
+  wordCount: number;
+  charCountWithSpaces: number;
+  charCountWithoutSpaces: number;
+  paragraphCount: number;
+  lineCount: number;
+  avgSentenceLengthWords: number;
+  avgWordLengthChars: number;
+  readingTimeMinutes: number;
+  speakingTimeMinutes: number;
   sentences: string[];
 }
 

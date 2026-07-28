@@ -5,9 +5,18 @@ import { alphabetize } from '@/lib/text/alphabetize';
 import {
   DEFAULT_ALPHABETIZER_OPTIONS,
   type AlphabetizerOptions,
+  type SeparatorPreset,
 } from '@/lib/text/types';
 import TextInput from '@/components/TextInput';
 import OutputPanel from '@/components/OutputPanel';
+
+const SEPARATOR_OPTIONS: { value: SeparatorPreset; label: string }[] = [
+  { value: 'newline', label: 'New line' },
+  { value: 'comma', label: 'Comma' },
+  { value: 'semicolon', label: 'Semicolon' },
+  { value: 'space', label: 'Space' },
+  { value: 'custom', label: 'Custom' },
+];
 
 export default function AlphabetizerDemo() {
   const [input, setInput] = useState('');
@@ -20,16 +29,19 @@ export default function AlphabetizerDemo() {
     [input, opts],
   );
 
+  const updateOpt = (partial: Partial<AlphabetizerOptions>) => {
+    setOpts((o) => ({ ...o, ...partial }));
+  };
+
   return (
     <div className="space-y-4">
+      {/* Sort options */}
       <div className="flex flex-wrap gap-4">
         <label className="flex items-center gap-2 text-sm">
           <input
             type="checkbox"
             checked={opts.caseSensitive}
-            onChange={(e) =>
-              setOpts((o) => ({ ...o, caseSensitive: e.target.checked }))
-            }
+            onChange={(e) => updateOpt({ caseSensitive: e.target.checked })}
             className="rounded border-gray-300"
           />
           Case Sensitive
@@ -38,9 +50,7 @@ export default function AlphabetizerDemo() {
           <input
             type="checkbox"
             checked={opts.reverse}
-            onChange={(e) =>
-              setOpts((o) => ({ ...o, reverse: e.target.checked }))
-            }
+            onChange={(e) => updateOpt({ reverse: e.target.checked })}
             className="rounded border-gray-300"
           />
           Reverse Order
@@ -49,19 +59,83 @@ export default function AlphabetizerDemo() {
           <input
             type="checkbox"
             checked={opts.removeDuplicates}
-            onChange={(e) =>
-              setOpts((o) => ({ ...o, removeDuplicates: e.target.checked }))
-            }
+            onChange={(e) => updateOpt({ removeDuplicates: e.target.checked })}
             className="rounded border-gray-300"
           />
           Remove Duplicates
         </label>
+        <label className="flex items-center gap-2 text-sm">
+          <input
+            type="checkbox"
+            checked={opts.removeHTML}
+            onChange={(e) => updateOpt({ removeHTML: e.target.checked })}
+            className="rounded border-gray-300"
+          />
+          Remove HTML
+        </label>
+      </div>
+
+      {/* Separator options */}
+      <div className="flex flex-wrap gap-4">
+        <div className="flex items-center gap-2">
+          <label className="text-sm font-medium text-gray-700">Input:</label>
+          <select
+            value={opts.inputSeparator}
+            onChange={(e) =>
+              updateOpt({ inputSeparator: e.target.value as SeparatorPreset })
+            }
+            className="rounded-lg border border-gray-300 px-2 py-1 text-sm"
+          >
+            {SEPARATOR_OPTIONS.map((s) => (
+              <option key={s.value} value={s.value}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        {opts.inputSeparator === 'custom' && (
+          <input
+            type="text"
+            placeholder="Custom separator"
+            value={opts.customInputSeparator}
+            onChange={(e) => updateOpt({ customInputSeparator: e.target.value })}
+            className="w-32 rounded-lg border border-gray-300 px-2 py-1 text-sm"
+          />
+        )}
+        <div className="flex items-center gap-2">
+          <label className="text-sm font-medium text-gray-700">Output:</label>
+          <select
+            value={opts.outputSeparator}
+            onChange={(e) =>
+              updateOpt({ outputSeparator: e.target.value as SeparatorPreset })
+            }
+            className="rounded-lg border border-gray-300 px-2 py-1 text-sm"
+          >
+            {SEPARATOR_OPTIONS.map((s) => (
+              <option key={s.value} value={s.value}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        {opts.outputSeparator === 'custom' && (
+          <input
+            type="text"
+            placeholder="Custom separator"
+            value={opts.customOutputSeparator}
+            onChange={(e) => updateOpt({ customOutputSeparator: e.target.value })}
+            className="w-32 rounded-lg border border-gray-300 px-2 py-1 text-sm"
+          />
+        )}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <TextInput
           label="Your List"
-          placeholder="Paste your list here, one item per line..."
+          placeholder={opts.inputSeparator === 'newline'
+            ? 'Paste your list here, one item per line...'
+            : `Paste your list here (separated by ${opts.inputSeparator})...`
+          }
           value={input}
           onChange={setInput}
         />

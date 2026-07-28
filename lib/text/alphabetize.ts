@@ -1,9 +1,28 @@
-import type { AlphabetizerOptions } from './types';
+import type { AlphabetizerOptions, SeparatorPreset } from './types';
+
+/** Map separator preset to actual delimiter */
+function getSeparator(preset: SeparatorPreset, custom: string): string {
+  switch (preset) {
+    case 'newline': return '\n';
+    case 'comma': return ',';
+    case 'semicolon': return ';';
+    case 'space': return ' ';
+    case 'custom': return custom || ' ';
+    default: return '\n';
+  }
+}
+
+/** Strip HTML tags from a string */
+function stripHTML(text: string): string {
+  return text.replace(/<[^>]*>/g, '');
+}
 
 /**
- * Alphabetize lines of text. Each line is sorted alphabetically.
+ * Alphabetize items. Input is split by the configured separator, sorted,
+ * and joined with the output separator.
+ *
  * Handles: empty input, Unicode/emoji/CJK, mixed line endings, BOM,
- * trailing whitespace, zero-width characters.
+ * trailing whitespace, zero-width characters, HTML removal.
  */
 export function alphabetize(
   input: string,
@@ -15,29 +34,31 @@ export function alphabetize(
     text = text.slice(1);
   }
 
-  // Normalize line endings: CRLF → LF, CR → LF
-  text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  // Strip HTML if requested
+  if (opts.removeHTML) {
+    text = stripHTML(text);
+  }
 
-  // Split into lines, trim each line (but preserve internal spaces)
-  const lines = text.split('\n').map((line) => line.trim());
+  const inputSep = getSeparator(opts.inputSeparator, opts.customInputSeparator);
 
-  // Filter out empty lines
-  const nonEmpty = lines.filter((line) => line.length > 0);
+  // Split by input separator and trim each item
+  const items = text.split(inputSep).map((item) => item.trim());
 
-  // If no lines, return empty string
+  // Filter out empty items
+  const nonEmpty = items.filter((item) => item.length > 0);
+
+  // If no items, return empty string
   if (nonEmpty.length === 0) return '';
 
-  // Determine sort order
+  // Sort
   let sorted: string[];
   if (opts.caseSensitive) {
     sorted = [...nonEmpty].sort((a, b) => {
-      // Use simple comparison for case-sensitive (Unicode code point order)
       if (a < b) return -1;
       if (a > b) return 1;
       return 0;
     });
   } else {
-    // Case-insensitive using Intl.Collator
     const collator = new Intl.Collator('en', {
       sensitivity: 'base',
       ignorePunctuation: false,
@@ -61,5 +82,6 @@ export function alphabetize(
     sorted.reverse();
   }
 
-  return sorted.join('\n');
+  const outputSep = getSeparator(opts.outputSeparator, opts.customOutputSeparator);
+  return sorted.join(outputSep);
 }

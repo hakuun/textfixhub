@@ -6,6 +6,24 @@ import type { LineBreakMode } from '@/lib/text/types';
 import TextInput from '@/components/TextInput';
 import OutputPanel from '@/components/OutputPanel';
 
+const MODES: { value: LineBreakMode; label: string; desc: string }[] = [
+  {
+    value: 'replace-with-space',
+    label: 'Replace with space',
+    desc: 'Single line breaks → spaces; paragraphs preserved',
+  },
+  {
+    value: 'remove-with-space',
+    label: 'Remove all (add space)',
+    desc: 'All line breaks removed, space added at line ends',
+  },
+  {
+    value: 'remove-entirely',
+    label: 'Remove entirely',
+    desc: 'All line breaks removed, text joined together',
+  },
+];
+
 export default function LineBreakRemoverDemo() {
   const [input, setInput] = useState('');
   const [mode, setMode] = useState<LineBreakMode>('replace-with-space');
@@ -17,27 +35,22 @@ export default function LineBreakRemoverDemo() {
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-4">
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="radio"
-            name="mode"
-            checked={mode === 'replace-with-space'}
-            onChange={() => setMode('replace-with-space')}
-            className="border-gray-300"
-          />
-          Replace with space
-        </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="radio"
-            name="mode"
-            checked={mode === 'remove-entirely'}
-            onChange={() => setMode('remove-entirely')}
-            className="border-gray-300"
-          />
-          Remove entirely
-        </label>
+      <div className="flex flex-wrap gap-4">
+        {MODES.map((m) => (
+          <label key={m.value} className="flex items-start gap-2 text-sm">
+            <input
+              type="radio"
+              name="mode"
+              checked={mode === m.value}
+              onChange={() => setMode(m.value)}
+              className="mt-0.5 border-gray-300"
+            />
+            <div>
+              <div className="font-medium text-gray-800">{m.label}</div>
+              <div className="text-xs text-gray-500">{m.desc}</div>
+            </div>
+          </label>
+        ))}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

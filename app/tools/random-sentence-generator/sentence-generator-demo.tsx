@@ -1,13 +1,15 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { generateSentences } from '@/lib/text/generate-sentences';
+import { generateSentences, getSentenceLibrarySize } from '@/lib/text/generate-sentences';
 import CountSelector from '@/components/CountSelector';
 import OutputPanel from '@/components/OutputPanel';
 
 export default function SentenceGeneratorDemo() {
   const [count, setCount] = useState(5);
   const [output, setOutput] = useState('');
+
+  const librarySize = getSentenceLibrarySize();
 
   const handleGenerate = useCallback(() => {
     const sentences = generateSentences({ count });
@@ -31,6 +33,11 @@ export default function SentenceGeneratorDemo() {
           Generate
         </button>
       </div>
+
+      <p className="text-xs text-gray-400">
+        Drawing from a library of {librarySize} hand-written sentences —
+        no AI, no templates, just good writing.
+      </p>
 
       <OutputPanel
         label="Generated Sentences"

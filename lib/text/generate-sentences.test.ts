@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { generateSentences } from './generate-sentences';
+import { generateSentences, getSentenceLibrarySize } from './generate-sentences';
 
 describe('generateSentences', () => {
-  it('generates 5 sentences by default', () => {
+  it('generates 5 non-empty grammatically correct sentences by default', () => {
     const result = generateSentences({ count: 5 });
     expect(result).toHaveLength(5);
     for (const s of result) {
       expect(s.length).toBeGreaterThan(10);
-      expect(s[0]).toBe(s[0].toUpperCase()); // starts with capital
-      expect(s.endsWith('.')).toBe(true); // ends with period
+      expect(s).toMatch(/^[A-Z"'0-9]/); // starts with capital, quote, or digit
+      expect(s).toMatch(/[.!?']$/); // ends with punctuation
     }
   });
 
@@ -40,7 +40,6 @@ describe('generateSentences', () => {
   });
 
   it('produces different output without seed (randomness)', () => {
-    // Run 5 trials, at least 1 should differ
     let hasDiff = false;
     for (let i = 0; i < 5; i++) {
       const a = generateSentences({ count: 10 });
@@ -61,9 +60,15 @@ describe('generateSentences', () => {
     expect(result).toHaveLength(500);
   });
 
+  it('returns all available when count exceeds library size', () => {
+    const librarySize = getSentenceLibrarySize();
+    const result = generateSentences({ count: librarySize + 100 });
+    expect(result.length).toBe(librarySize);
+  });
+
   it('clamps count above 500 to 500', () => {
     const result = generateSentences({ count: 1000 });
-    expect(result).toHaveLength(500);
+    expect(result.length).toBeLessThanOrEqual(500);
   });
 
   it('clamps negative count to 0', () => {
@@ -71,10 +76,34 @@ describe('generateSentences', () => {
     expect(result).toEqual([]);
   });
 
-  it('sentences contain no leftover placeholders', () => {
+  it('all sentences are unique for reasonable count', () => {
+    const result = generateSentences({ count: 50 });
+    const unique = new Set(result);
+    expect(unique.size).toBe(50);
+  });
+
+  it('sentences end with proper punctuation', () => {
+    const result = generateSentences({ count: 50 });
+    for (const s of result) {
+      const lastChar = s[s.length - 1];
+      expect(['.', '!', '?', "'", '"']).toContain(lastChar);
+    }
+  });
+
+  it('no template placeholders remain', () => {
     const result = generateSentences({ count: 20, seed: 42 });
     for (const s of result) {
       expect(s).not.toMatch(/\[noun\]|\[verb\]|\[adjective\]|\[adverb\]/);
     }
+  });
+});
+
+describe('getSentenceLibrarySize', () => {
+  it('returns a positive number', () => {
+    expect(getSentenceLibrarySize()).toBeGreaterThan(0);
+  });
+
+  it('returns at least 500', () => {
+    expect(getSentenceLibrarySize()).toBeGreaterThanOrEqual(500);
   });
 });

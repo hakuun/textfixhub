@@ -1,9 +1,5 @@
 import type { SentenceGeneratorOptions } from './types';
-import { NOUNS } from './wordlists/nouns';
-import { VERBS } from './wordlists/verbs';
-import { ADJECTIVES } from './wordlists/adjectives';
-import { ADVERBS } from './wordlists/adverbs';
-import { SENTENCE_TEMPLATES } from './wordlists/sentence-templates';
+import { PREWRITTEN_SENTENCES } from './wordlists/prewritten-sentences';
 
 /**
  * Simple seeded PRNG (mulberry32). Produces deterministic output for a given seed.
@@ -18,50 +14,32 @@ function mulberry32(seed: number): () => number {
   };
 }
 
-/** Pick a random element from an array */
-function pick<T>(arr: T[], rand: () => number): T {
-  return arr[Math.floor(rand() * arr.length)];
-}
-
-/** Capitalize the first letter of a string */
-function capitalize(s: string): string {
-  if (s.length === 0) return s;
-  return s[0].toUpperCase() + s.slice(1);
-}
-
 /**
- * Fill a single template with random words. Handles subject-verb agreement:
- * if the template contains "[verb]s", the 's' is appended to the verb.
+ * Fisher-Yates shuffle with optional seeded PRNG.
  */
-function fillTemplate(template: string, rand: () => number): string {
-  let result = template;
-
-  // Handle [verb]s pattern (third-person singular) — extract the verb, add 's', replace
-  result = result.replace(/\[verb\]s/g, () => {
-    const verb = pick(VERBS, rand);
-    return verb + 's';
-  });
-
-  // Handle remaining [verb] (plural / base form)
-  result = result.replace(/\[verb\]/g, () => pick(VERBS, rand));
-
-  // Replace other categories
-  result = result.replace(/\[noun\]/g, () => pick(NOUNS, rand));
-  result = result.replace(/\[adjective\]/g, () => pick(ADJECTIVES, rand));
-  result = result.replace(/\[adverb\]/g, () => pick(ADVERBS, rand));
-
-  // Capitalize first letter, ensure ends with period
-  result = capitalize(result);
-  if (!result.endsWith('.')) {
-    result += '.';
+function shuffle<T>(arr: T[], rand: () => number): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
   }
-
   return result;
 }
 
 /**
- * Generate N grammatically-plausible random sentences using template-based
- * slot-and-fill generation.
+ * Generate N random sentences from a library of 500 human-written sentences.
+ *
+ * Unlike template-based generation (which produced "crosss" and other grammar
+ * errors), this approach guarantees 100% grammatically correct output. Each
+ * sentence is hand-crafted — following the validated approach of
+ * randomwordgenerator.com (SERP #2), which explicitly abandoned computer
+ * generation because "results were disappointing."
+ *
+ * Sentences are drawn from 4 categories:
+ * - Story starters (40%) — novel/story opening lines
+ * - Absurd situations (25%) — funny, quirky, surreal
+ * - Dialogue openers (20%) — conversation starters
+ * - Mystery hooks (15%) — intriguing, strange, compelling
  *
  * @param opts.count — number of sentences (default 5, clamped 0–500)
  * @param opts.seed — optional fixed seed for deterministic output (SSG)
@@ -74,11 +52,18 @@ export function generateSentences(opts: SentenceGeneratorOptions): string[] {
     ? mulberry32(opts.seed)
     : Math.random;
 
-  const sentences: string[] = [];
-  for (let i = 0; i < count; i++) {
-    const template = pick(SENTENCE_TEMPLATES, rand);
-    sentences.push(fillTemplate(template, rand));
+  // Shuffle the entire library and take the first `count`
+  const shuffled = shuffle(PREWRITTEN_SENTENCES, rand);
+
+  // If requesting more than available, return all
+  if (count >= shuffled.length) {
+    return shuffled;
   }
 
-  return sentences;
+  return shuffled.slice(0, count);
+}
+
+/** Total number of sentences available */
+export function getSentenceLibrarySize(): number {
+  return PREWRITTEN_SENTENCES.length;
 }

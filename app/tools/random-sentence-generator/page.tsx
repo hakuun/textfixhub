@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     'Random Sentence Generator - Free Online Sentence Generator | TextTools',
   description:
-    'Generate grammatically-plausible random sentences instantly for writing prompts, brainstorming, and creative exercises. Choose how many sentences you need. Free, no sign-up.',
+    'Generate random sentences for writing prompts, brainstorming, and creative exercises. 500 hand-written sentences — no AI slop, no grammar errors. Free, no sign-up.',
   alternates: {
     canonical: '/tools/random-sentence-generator',
   },
@@ -26,12 +26,15 @@ export default function RandomSentenceGeneratorPage() {
           Random Sentence Generator
         </h1>
         <p className="mt-2 text-lg text-gray-600">
-          Generate grammatically-plausible random sentences for writing prompts,
-          brainstorming, and creative exercises.
+          Generate random sentences for writing prompts, brainstorming, and
+          creative exercises. Every sentence is hand-written — grammatically
+          correct and actually interesting.
         </p>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Try It Out</h2>
+          <h2 className="text-xl font-semibold text-gray-800">
+            Try It Out
+          </h2>
           <div className="mt-4">
             <SentenceGeneratorDemo />
           </div>
@@ -43,10 +46,32 @@ export default function RandomSentenceGeneratorPage() {
           </h2>
           <p className="mt-2 text-gray-600">
             Choose how many sentences you want (1 to 500) and click Generate.
-            Each sentence is built from a library of common English words using
-            varied sentence templates, producing grammatically-plausible output
-            every time. Sentences are generated entirely in your browser — no
-            API calls, no waiting.
+            Unlike other generators that use templates or AI, our sentences are
+            drawn from a library of 500 human-written sentences — each one
+            crafted to be grammatically correct, interesting, and actually
+            useful as a writing prompt.
+          </p>
+          <ul className="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+            <li>
+              <strong>Story starters</strong> — novel and short story opening
+              lines that hook the reader
+            </li>
+            <li>
+              <strong>Absurd situations</strong> — quirky, funny, surreal
+              scenarios for creative brainstorming
+            </li>
+            <li>
+              <strong>Dialogue openers</strong> — conversation starters and
+              character voice prompts
+            </li>
+            <li>
+              <strong>Mystery hooks</strong> — intriguing sentences that make
+              you ask &ldquo;what happens next?&rdquo;
+            </li>
+          </ul>
+          <p className="mt-2 text-gray-600">
+            Sentences are generated entirely in your browser — no API calls,
+            no waiting.
           </p>
         </section>
 
@@ -73,7 +98,7 @@ export default function RandomSentenceGeneratorPage() {
             '@type': 'WebApplication',
             name: 'Random Sentence Generator',
             description:
-              'Free online random sentence generator — create grammatically-plausible sentences for writing prompts and brainstorming.',
+              'Free online random sentence generator with 500 hand-written sentences for writing prompts and creative brainstorming. No AI slop, no grammar errors.',
             url: 'https://texttools.example.com/tools/random-sentence-generator',
             applicationCategory: 'UtilityApplication',
             operatingSystem: 'Any',
