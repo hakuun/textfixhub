@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
-      <h1 className="text-3xl font-bold text-gray-900">Privacy Policy</h1>
-      <p className="mt-2 text-sm text-gray-400">
+      <h1 className="text-3xl font-bold text-stone-900">Privacy Policy</h1>
+      <p className="mt-2 text-sm text-stone-400">
         Effective as of July 29, 2026
       </p>
 
-      <div className="mt-8 space-y-6 leading-relaxed text-gray-600">
+      <div className="mt-8 space-y-6 leading-relaxed text-stone-600">
         <section>
           <p>
             As the owner of this website, I understand that your privacy is
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Information We Collect
           </h2>
           <p className="mt-3">
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Our Use of Cookies
           </h2>
           <p className="mt-3">
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Third-Party Services
           </h2>
           <p className="mt-3">
@@ -97,7 +97,7 @@ export default function PrivacyPage() {
               <strong>Hosting</strong> — the Site is hosted on Vercel.{' '}
               <a
                 href="https://vercel.com/legal/privacy-policy"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -124,7 +124,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Children&apos;s Privacy
           </h2>
           <p className="mt-3">
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Changes to This Privacy Policy
           </h2>
           <p className="mt-3">
@@ -148,13 +148,13 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">Contact</h2>
+          <h2 className="text-xl font-semibold text-stone-900">Contact</h2>
           <p className="mt-3">
             If you have any questions about this Privacy Policy, please
             contact us at:{' '}
             <a
               href="mailto:kuangxiu0702@gmail.com"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               kuangxiu0702@gmail.com
             </a>

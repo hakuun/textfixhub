@@ -15,12 +15,12 @@ function StatTile({
   unit?: string;
 }) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-center">
-      <div className="text-2xl font-bold text-blue-700">
+    <div className="rounded-xl border border-stone-200 bg-white px-4 py-3 text-center">
+      <div className="text-2xl font-bold text-emerald-700 tabular-nums">
         {value}
-        {unit ? <span className="ml-0.5 text-sm font-normal text-blue-500">{unit}</span> : null}
+        {unit ? <span className="ml-0.5 text-sm font-normal text-emerald-500">{unit}</span> : null}
       </div>
-      <div className="mt-0.5 text-xs text-gray-500">{label}</div>
+      <div className="mt-0.5 text-xs text-stone-500">{label}</div>
     </div>
   );
 }
@@ -89,7 +89,7 @@ export default function SentenceCounterDemo() {
         <div className="flex gap-2">
           <button
             onClick={handleCopyStats}
-            className="rounded-lg border border-gray-300 px-4 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50"
+            className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-medium text-stone-500 transition-all hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-95"
           >
             Copy Statistics
           </button>
@@ -105,11 +105,11 @@ export default function SentenceCounterDemo() {
 
       {/* Extracted sentences (collapsed by default) */}
       {stats.sentences.length > 0 && (
-        <details className="rounded-lg border border-gray-200 p-4">
-          <summary className="cursor-pointer text-sm font-medium text-gray-700">
+        <details className="rounded-xl border border-stone-200 p-4">
+          <summary className="cursor-pointer text-sm font-medium text-stone-700">
             Show extracted sentences ({stats.sentences.length})
           </summary>
-          <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm text-gray-600">
+          <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm text-stone-600">
             {stats.sentences.map((s, i) => (
               <li key={i}>{s}</li>
             ))}

@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
 import Link from 'next/link';
 import './globals.css';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -33,22 +44,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-white text-gray-900 antialiased">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-screen bg-white text-stone-900 antialiased font-sans">
         <div className="flex min-h-screen flex-col">
-          {/* Global Header */}
-          <header className="border-b border-gray-200">
-            <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+          {/* Header */}
+          <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-white/90 backdrop-blur-sm">
+            <div className="mx-auto flex max-w-5xl items-center justify-between px-4 h-14">
               <Link
                 href="/"
-                className="text-lg font-semibold text-gray-900 hover:text-gray-600 transition-colors"
+                className="inline-flex items-center gap-2.5 text-base font-semibold tracking-tight text-stone-900 hover:text-emerald-600 transition-colors"
               >
+                <img
+                  src="/favicon.svg"
+                  alt=""
+                  className="h-7 w-7 rounded-md"
+                  aria-hidden="true"
+                />
                 TextTools
               </Link>
-              <nav className="flex gap-4 text-sm">
+              <nav className="flex items-center gap-6 text-sm">
                 <Link
                   href="/about"
-                  className="text-gray-500 hover:text-gray-900 transition-colors"
+                  className="text-stone-500 hover:text-stone-900 transition-colors"
                 >
                   About
                 </Link>
@@ -59,29 +76,29 @@ export default function RootLayout({
           {/* Page Content */}
           <main className="flex-1">{children}</main>
 
-          {/* Global Footer */}
-          <footer className="border-t border-gray-100">
-            <div className="mx-auto max-w-4xl px-4 py-6">
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
-                <p className="text-sm text-gray-400">
-                  © 2026 TextTools. All tools run locally in your browser.
+          {/* Footer */}
+          <footer className="border-t border-stone-100">
+            <div className="mx-auto max-w-5xl px-4 py-8">
+              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+                <p className="text-sm text-stone-400">
+                  &copy; {new Date().getFullYear()} TextTools. All tools run locally in your browser.
                 </p>
-                <nav className="flex gap-4 text-sm">
+                <nav className="flex gap-6 text-sm">
                   <Link
                     href="/about"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-stone-400 hover:text-stone-600 transition-colors"
                   >
                     About
                   </Link>
                   <Link
                     href="/privacy"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-stone-400 hover:text-stone-600 transition-colors"
                   >
                     Privacy
                   </Link>
                   <Link
                     href="/terms"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-stone-400 hover:text-stone-600 transition-colors"
                   >
                     Terms
                   </Link>

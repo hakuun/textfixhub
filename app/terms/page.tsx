@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
-      <h1 className="text-3xl font-bold text-gray-900">Terms of Use</h1>
+      <h1 className="text-3xl font-bold text-stone-900">Terms of Use</h1>
 
-      <div className="mt-8 space-y-6 leading-relaxed text-gray-600">
+      <div className="mt-8 space-y-6 leading-relaxed text-stone-600">
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             General Disclaimer
           </h2>
           <p className="mt-3">
@@ -36,7 +36,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Limitation of Liability
           </h2>
           <p className="mt-3">
@@ -59,7 +59,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Prohibited Uses
           </h2>
           <p className="mt-3">
@@ -85,7 +85,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Intellectual Property
           </h2>
           <p className="mt-3">
@@ -98,7 +98,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Changes to These Terms
           </h2>
           <p className="mt-3">
@@ -112,7 +112,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Your Acceptance of These Terms
           </h2>
           <p className="mt-3">
@@ -120,7 +120,7 @@ export default function TermsPage() {
             of Use and our{' '}
             <a
               href="/privacy"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               Privacy Policy
             </a>

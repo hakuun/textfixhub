@@ -22,31 +22,31 @@ export default function LineBreakRemoverPage() {
   return (
     <ToolLayout>
       <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-stone-900">
           Line Break Remover
         </h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <p className="mt-2 text-lg text-stone-600">
           Remove broken line breaks from pasted text — turn choppy PDF or email
           copy into flowing paragraphs.
         </p>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Try It Out</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Try It Out</h2>
           <div className="mt-4">
             <LineBreakRemoverDemo />
           </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             How It Works
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-stone-600">
             Paste text copied from a PDF, email, or chat message. The tool
             removes single line breaks and joins text into flowing paragraphs.
             Choose between two modes:
           </p>
-          <ul className="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+          <ul className="mt-2 list-disc space-y-1 pl-6 text-stone-600">
             <li>
               <strong>Replace with space</strong> — single line breaks become
               spaces; double line breaks (paragraph breaks) are preserved.
@@ -56,13 +56,13 @@ export default function LineBreakRemoverPage() {
               text is joined together.
             </li>
           </ul>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-stone-600">
             Handles Windows (CRLF), Unix (LF), and legacy Mac (CR) line endings.
           </p>
         </section>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Example</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Example</h2>
           <div className="mt-4">
             <WorkedExample
               input={SAMPLE_INPUT}

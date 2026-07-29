@@ -26,14 +26,14 @@ export default function AlphabetizerPage() {
   return (
     <ToolLayout>
       <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900">Alphabetizer</h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <h1 className="text-3xl font-bold text-stone-900">Alphabetizer</h1>
+        <p className="mt-2 text-lg text-stone-600">
           Sort any list alphabetically — instantly, with options to remove
           duplicates and reverse order.
         </p>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             Try It Out
           </h2>
           <div className="mt-4">
@@ -42,12 +42,12 @@ export default function AlphabetizerPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800">How It Works</h2>
-          <p className="mt-2 text-gray-600">
+          <h2 className="text-xl font-semibold text-stone-800">How It Works</h2>
+          <p className="mt-2 text-stone-600">
             Paste your list into the input box — one item per line. Your list is
             sorted automatically as you type. Use the toggles to customize:
           </p>
-          <ul className="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+          <ul className="mt-2 list-disc space-y-1 pl-6 text-stone-600">
             <li><strong>Case Sensitive</strong> — sort uppercase and lowercase separately</li>
             <li><strong>Reverse Order</strong> — sort Z→A instead of A→Z</li>
             <li><strong>Remove Duplicates</strong> — strip repeated lines</li>
@@ -55,7 +55,7 @@ export default function AlphabetizerPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Example</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Example</h2>
           <div className="mt-4">
             <WorkedExample input={SAMPLE_INPUT} output={workedExampleOutput} />
           </div>

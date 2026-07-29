@@ -18,19 +18,21 @@ export default function CountSelector({
   const clamp = (n: number) => Math.max(min, Math.min(max, n));
 
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-sm font-medium text-gray-700">{label}</span>
+    <div className="flex items-center gap-2">
+      <span className="text-xs font-medium uppercase tracking-wider text-stone-500">
+        {label}
+      </span>
       <button
-        className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 text-lg font-medium text-gray-700 hover:bg-gray-100 disabled:opacity-30"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200 bg-white text-base font-medium text-stone-600 transition-all hover:border-stone-300 hover:bg-stone-50 hover:text-stone-900 active:scale-95 disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:border-stone-200 disabled:hover:bg-white"
         onClick={() => onChange(clamp(value - 1))}
         disabled={value <= min}
         aria-label="Decrease count"
       >
-        −
+        &minus;
       </button>
       <input
         type="number"
-        className="h-10 w-20 rounded-lg border border-gray-300 text-center text-sm font-medium shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        className="h-9 w-16 rounded-lg border border-stone-200 bg-white text-center text-sm font-medium tabular-nums text-stone-900 shadow-sm transition-all hover:border-stone-300 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         value={value}
         min={min}
         max={max}
@@ -40,7 +42,7 @@ export default function CountSelector({
         }}
       />
       <button
-        className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 text-lg font-medium text-gray-700 hover:bg-gray-100 disabled:opacity-30"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200 bg-white text-base font-medium text-stone-600 transition-all hover:border-stone-300 hover:bg-stone-50 hover:text-stone-900 active:scale-95 disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:border-stone-200 disabled:hover:bg-white"
         onClick={() => onChange(clamp(value + 1))}
         disabled={value >= max}
         aria-label="Increase count"

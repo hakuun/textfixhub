@@ -37,39 +37,39 @@ export default function AlphabetizerDemo() {
     <div className="space-y-4">
       {/* Sort options */}
       <div className="flex flex-wrap gap-4">
-        <label className="flex items-center gap-2 text-sm">
+        <label className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
           <input
             type="checkbox"
             checked={opts.caseSensitive}
             onChange={(e) => updateOpt({ caseSensitive: e.target.checked })}
-            className="rounded border-gray-300"
+            className="rounded border-stone-300 text-emerald-600 focus:ring-emerald-500/20"
           />
           Case Sensitive
         </label>
-        <label className="flex items-center gap-2 text-sm">
+        <label className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
           <input
             type="checkbox"
             checked={opts.reverse}
             onChange={(e) => updateOpt({ reverse: e.target.checked })}
-            className="rounded border-gray-300"
+            className="rounded border-stone-300 text-emerald-600 focus:ring-emerald-500/20"
           />
           Reverse Order
         </label>
-        <label className="flex items-center gap-2 text-sm">
+        <label className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
           <input
             type="checkbox"
             checked={opts.removeDuplicates}
             onChange={(e) => updateOpt({ removeDuplicates: e.target.checked })}
-            className="rounded border-gray-300"
+            className="rounded border-stone-300 text-emerald-600 focus:ring-emerald-500/20"
           />
           Remove Duplicates
         </label>
-        <label className="flex items-center gap-2 text-sm">
+        <label className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
           <input
             type="checkbox"
             checked={opts.removeHTML}
             onChange={(e) => updateOpt({ removeHTML: e.target.checked })}
-            className="rounded border-gray-300"
+            className="rounded border-stone-300 text-emerald-600 focus:ring-emerald-500/20"
           />
           Remove HTML
         </label>
@@ -78,13 +78,13 @@ export default function AlphabetizerDemo() {
       {/* Separator options */}
       <div className="flex flex-wrap gap-4">
         <div className="flex items-center gap-2">
-          <label className="text-sm font-medium text-gray-700">Input:</label>
+          <label className="text-xs font-medium uppercase tracking-wider text-stone-500">Input:</label>
           <select
             value={opts.inputSeparator}
             onChange={(e) =>
               updateOpt({ inputSeparator: e.target.value as SeparatorPreset })
             }
-            className="rounded-lg border border-gray-300 px-2 py-1 text-sm"
+            className="rounded-lg border border-stone-200 bg-white px-2 py-1.5 text-sm text-stone-700 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           >
             {SEPARATOR_OPTIONS.map((s) => (
               <option key={s.value} value={s.value}>
@@ -99,17 +99,17 @@ export default function AlphabetizerDemo() {
             placeholder="Custom separator"
             value={opts.customInputSeparator}
             onChange={(e) => updateOpt({ customInputSeparator: e.target.value })}
-            className="w-32 rounded-lg border border-gray-300 px-2 py-1 text-sm"
+            className="w-32 rounded-lg border border-stone-200 bg-white px-2 py-1.5 text-sm text-stone-700 placeholder:text-stone-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
         )}
         <div className="flex items-center gap-2">
-          <label className="text-sm font-medium text-gray-700">Output:</label>
+          <label className="text-xs font-medium uppercase tracking-wider text-stone-500">Output:</label>
           <select
             value={opts.outputSeparator}
             onChange={(e) =>
               updateOpt({ outputSeparator: e.target.value as SeparatorPreset })
             }
-            className="rounded-lg border border-gray-300 px-2 py-1 text-sm"
+            className="rounded-lg border border-stone-200 bg-white px-2 py-1.5 text-sm text-stone-700 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           >
             {SEPARATOR_OPTIONS.map((s) => (
               <option key={s.value} value={s.value}>
@@ -124,7 +124,7 @@ export default function AlphabetizerDemo() {
             placeholder="Custom separator"
             value={opts.customOutputSeparator}
             onChange={(e) => updateOpt({ customOutputSeparator: e.target.value })}
-            className="w-32 rounded-lg border border-gray-300 px-2 py-1 text-sm"
+            className="w-32 rounded-lg border border-stone-200 bg-white px-2 py-1.5 text-sm text-stone-700 placeholder:text-stone-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
         )}
       </div>

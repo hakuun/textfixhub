@@ -14,11 +14,11 @@ export default function ToolSidebar({ currentSlug }: ToolSidebarProps) {
     .filter((t): t is ToolMeta => t !== undefined);
 
   return (
-    <section className="mt-12 border-t border-gray-100 pt-8">
-      <h2 className="mb-4 text-lg font-semibold text-gray-900">
+    <section className="mt-12 border-t border-stone-100 pt-10">
+      <h2 className="text-lg font-semibold text-stone-900">
         Related Tools
       </h2>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {relatedTools.map((tool) => <ToolCard key={tool.slug} tool={tool} />)}
       </div>
     </section>

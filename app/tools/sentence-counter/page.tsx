@@ -22,29 +22,29 @@ export default function SentenceCounterPage() {
   return (
     <ToolLayout>
       <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900">Sentence Counter</h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <h1 className="text-3xl font-bold text-stone-900">Sentence Counter</h1>
+        <p className="mt-2 text-lg text-stone-600">
           Count sentences, words, characters, and more — a complete text
           statistics tool with smart abbreviation handling.
         </p>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Try It Out</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Try It Out</h2>
           <div className="mt-4">
             <SentenceCounterDemo />
           </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             How It Works
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-stone-600">
             Paste your text and get a complete breakdown instantly. Unlike
             simple counters that naïvely split on every period, our tool knows
             that not all periods end sentences:
           </p>
-          <ul className="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+          <ul className="mt-2 list-disc space-y-1 pl-6 text-stone-600">
             <li>
               <strong>Abbreviations</strong> like Mr., Dr., e.g., i.e., U.S.A.,
               and Ph.D. do not trigger false sentence splits.
@@ -61,78 +61,78 @@ export default function SentenceCounterPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             All Statistics
           </h2>
-          <div className="mt-2 overflow-hidden rounded-lg border border-gray-200">
+          <div className="mt-2 overflow-hidden rounded-lg border border-stone-200">
             <table className="min-w-full text-sm">
               <thead>
-                <tr className="bg-gray-50">
-                  <th className="px-4 py-2 text-left font-medium text-gray-700">
+                <tr className="bg-stone-50">
+                  <th className="px-4 py-2 text-left font-medium text-stone-700">
                     Metric
                   </th>
-                  <th className="px-4 py-2 text-left font-medium text-gray-700">
+                  <th className="px-4 py-2 text-left font-medium text-stone-700">
                     What It Tells You
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-stone-100">
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Sentences
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     Number of sentences detected — correctly ignores
                     abbreviations and decimals
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Words
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     Total word count — useful for meeting length requirements
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Characters
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     With and without spaces — handy for SEO meta descriptions
                     and character limits
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Paragraphs
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     Blocks of text separated by blank lines
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Avg Sentence Length
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     Words per sentence — aim for 15–20 for readable web content
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Reading Time
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     Estimated at 200 words per minute (adult silent reading
                     speed)
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 font-medium text-gray-800">
+                  <td className="px-4 py-2 font-medium text-stone-800">
                     Speaking Time
                   </td>
-                  <td className="px-4 py-2 text-gray-600">
+                  <td className="px-4 py-2 text-stone-600">
                     Estimated at 130 words per minute (natural speech pace)
                   </td>
                 </tr>
@@ -142,7 +142,7 @@ export default function SentenceCounterPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Example</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Example</h2>
           <div className="mt-4">
             <WorkedExample
               input={SAMPLE_INPUT}

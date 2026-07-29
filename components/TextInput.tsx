@@ -53,12 +53,12 @@ export default function TextInput({
   return (
     <div>
       {label && (
-        <label className="mb-1 block text-sm font-medium text-gray-700">
+        <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-stone-500">
           {label}
         </label>
       )}
       <textarea
-        className="w-full rounded-lg border border-gray-300 px-4 py-3 font-mono text-sm leading-relaxed shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        className="w-full rounded-xl border border-stone-200 bg-white px-4 py-3 font-mono text-sm leading-relaxed text-stone-900 shadow-sm transition-all placeholder:text-stone-400 hover:border-stone-300 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         rows={8}
         placeholder={placeholder}
         value={localValue}

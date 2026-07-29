@@ -22,26 +22,26 @@ export default function RandomNounGeneratorPage() {
   return (
     <ToolLayout>
       <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-stone-900">
           Random Noun Generator
         </h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <p className="mt-2 text-lg text-stone-600">
           Generate random English nouns — perfect for classroom activities, word
           games, brainstorming, and creative writing.
         </p>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Try It Out</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Try It Out</h2>
           <div className="mt-4">
             <NounGeneratorDemo />
           </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             How It Works
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-stone-600">
             Choose how many random nouns you want (1 to 500) and click Generate.
             Nouns are randomly selected from a built-in list of common English
             words. Every click gives you a fresh set. Nouns are generated
@@ -50,7 +50,7 @@ export default function RandomNounGeneratorPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Example</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Example</h2>
           <div className="mt-4">
             <WorkedExample
               input={`Count: ${DEFAULT_COUNT}`}

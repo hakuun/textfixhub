@@ -23,17 +23,17 @@ export default function RandomSentenceGeneratorPage() {
   return (
     <ToolLayout>
       <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-stone-900">
           Random Sentence Generator
         </h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <p className="mt-2 text-lg text-stone-600">
           Generate random sentences for writing prompts, brainstorming, and
           creative exercises. Every sentence is hand-written — grammatically
           correct and actually interesting.
         </p>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             Try It Out
           </h2>
           <div className="mt-4">
@@ -42,17 +42,17 @@ export default function RandomSentenceGeneratorPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-stone-800">
             How It Works
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-stone-600">
             Choose how many sentences you want (1 to 500) and click Generate.
             Unlike other generators that use templates or AI, our sentences are
             drawn from a library of 500 human-written sentences — each one
             crafted to be grammatically correct, interesting, and actually
             useful as a writing prompt.
           </p>
-          <ul className="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+          <ul className="mt-2 list-disc space-y-1 pl-6 text-stone-600">
             <li>
               <strong>Story starters</strong> — novel and short story opening
               lines that hook the reader
@@ -70,14 +70,14 @@ export default function RandomSentenceGeneratorPage() {
               you ask &ldquo;what happens next?&rdquo;
             </li>
           </ul>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-stone-600">
             Sentences are generated entirely in your browser — no API calls,
             no waiting.
           </p>
         </section>
 
         <section className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-800">Example</h2>
+          <h2 className="text-xl font-semibold text-stone-800">Example</h2>
           <div className="mt-4">
             <WorkedExample
               input={`Count: ${DEFAULT_COUNT}`}

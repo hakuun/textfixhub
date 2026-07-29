@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { Check, Copy } from '@phosphor-icons/react/dist/ssr';
 import EmptyState from './EmptyState';
 
 interface OutputPanelProps {
@@ -25,24 +26,43 @@ export default function OutputPanel({
   }, [text]);
 
   if (!text) {
-    return <EmptyState message={emptyMessage} />;
+    return (
+      <div>
+        {label && (
+          <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-stone-500">
+            {label}
+          </label>
+        )}
+        <EmptyState message={emptyMessage} />
+      </div>
+    );
   }
 
   return (
     <div>
-      <div className="mb-1 flex items-center justify-between">
-        <label className="text-sm font-medium text-gray-700">
+      <div className="mb-2 flex items-center justify-between">
+        <label className="text-xs font-medium uppercase tracking-wider text-stone-500">
           {label}
         </label>
         <button
           onClick={handleCopy}
-          className="rounded border border-gray-300 px-2 py-0.5 text-xs text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+          className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-medium text-stone-500 transition-all hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-95"
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? (
+            <>
+              <Check className="h-3 w-3" weight="bold" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Copy className="h-3 w-3" />
+              Copy
+            </>
+          )}
         </button>
       </div>
       <div
-        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 font-mono text-sm leading-relaxed whitespace-pre-wrap"
+        className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 font-mono text-sm leading-relaxed text-stone-800 whitespace-pre-wrap"
         dir="auto"
       >
         {text}

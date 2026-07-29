@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
-      <h1 className="text-3xl font-bold text-gray-900">About TextTools</h1>
+      <h1 className="text-3xl font-bold text-stone-900">About TextTools</h1>
 
-      <div className="mt-8 space-y-6 leading-relaxed text-gray-600">
+      <div className="mt-8 space-y-6 leading-relaxed text-stone-600">
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Hey, I&apos;m Hakuun
           </h2>
           <p className="mt-3">
@@ -32,7 +32,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             Why I Built This
           </h2>
           <p className="mt-3">
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-stone-900">
             How It Works
           </h2>
           <p className="mt-3">
@@ -81,7 +81,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900">Get in Touch</h2>
+          <h2 className="text-xl font-semibold text-stone-900">Get in Touch</h2>
           <p className="mt-3">
             Have a suggestion for a tool? Found something that could be better?
             I&apos;d genuinely love to hear from you.
@@ -90,7 +90,7 @@ export default function AboutPage() {
             Email:{' '}
             <a
               href="mailto:kuangxiu0702@gmail.com"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               kuangxiu0702@gmail.com
             </a>

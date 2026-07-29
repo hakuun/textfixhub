@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      <h1 className="text-4xl font-bold text-gray-900">
+    <div className="mx-auto max-w-5xl px-4 py-16">
+      <h1 className="text-4xl font-bold tracking-tight text-stone-900">
         Free Online Text Tools
       </h1>
-      <p className="mt-4 text-lg text-gray-600">
+      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
         Simple, fast text utilities that work right in your browser. No
         sign-up required — just open a tool and start working.
       </p>
@@ -31,11 +31,11 @@ export default function Home() {
         ))}
       </div>
 
-      <section className="mt-16 border-t border-gray-100 pt-12">
-        <h2 className="text-2xl font-bold text-gray-900">
+      <section className="mt-16 border-t border-stone-100 pt-12">
+        <h2 className="text-2xl font-bold tracking-tight text-stone-900">
           Why Use TextTools?
         </h2>
-        <div className="mt-6 space-y-4 leading-relaxed text-gray-600">
+        <div className="mt-6 space-y-4 leading-relaxed text-stone-600">
           <p>
             All TextTools run entirely in your browser using JavaScript. Your
             text never leaves your computer — nothing is uploaded to a server,
@@ -59,43 +59,43 @@ export default function Home() {
           </p>
         </div>
 
-        <h2 className="mt-10 text-2xl font-bold text-gray-900">
+        <h2 className="mt-10 text-2xl font-bold tracking-tight text-stone-900">
           Designed to Save You Time
         </h2>
-        <div className="mt-6 space-y-4 leading-relaxed text-gray-600">
+        <div className="mt-6 space-y-4 leading-relaxed text-stone-600">
           <p>
             Each tool is built for a specific task. Need to{' '}
             <Link
               href="/tools/alphabetizer"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               alphabetize a list
             </Link>
             ? Clean up{' '}
             <Link
               href="/tools/line-break-remover"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               messy line breaks
             </Link>
             ? Get detailed{' '}
             <Link
               href="/tools/sentence-counter"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               text statistics like word count and reading time
             </Link>
             ? Generate{' '}
             <Link
               href="/tools/random-sentence-generator"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               creative writing prompts
             </Link>{' '}
             or{' '}
             <Link
               href="/tools/random-noun-generator"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               random nouns for brainstorming
             </Link>
@@ -106,7 +106,7 @@ export default function Home() {
             frustration. More tools are on the way. If you have a suggestion,{' '}
             <a
               href="mailto:kuangxiu0702@gmail.com"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               drop us a line
             </a>
