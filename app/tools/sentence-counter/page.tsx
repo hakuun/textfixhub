@@ -8,7 +8,7 @@ import SentenceCounterDemo from './sentence-counter-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Sentence Counter - Free Online Text Statistics Tool | TextTools',
+  title: 'Sentence Counter - Free Online Text Statistics Tool | TextFixHub',
   description:
     'Count sentences, words, characters, paragraphs, and more. Get reading time, speaking time, and detailed text statistics. Smart abbreviation handling. Free, no sign-up.',
   alternates: {
@@ -163,7 +163,7 @@ export default function SentenceCounterPage() {
           name: 'Sentence Counter',
           description:
             'Free online text statistics tool — count sentences, words, characters, paragraphs, reading time, and more with smart abbreviation handling.',
-          url: 'https://texttools.example.com/tools/sentence-counter',
+          url: 'https://textfixhub.com/tools/sentence-counter',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

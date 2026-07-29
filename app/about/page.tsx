@@ -4,9 +4,9 @@ const CAREER_START_YEAR = 2020;
 const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
 
 export const metadata: Metadata = {
-  title: 'About TextTools',
+  title: 'About TextFixHub',
   description:
-    'TextTools is built by Hakuun, a frontend developer. Simple, practical text tools that run locally in your browser.',
+    'TextFixHub is built by Hakuun, a frontend developer. Simple, practical text tools that run locally in your browser.',
   alternates: {
     canonical: '/about',
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
-      <h1 className="text-3xl font-bold text-stone-900">About TextTools</h1>
+      <h1 className="text-3xl font-bold text-stone-900">About TextFixHub</h1>
 
       <div className="mt-8 space-y-6 leading-relaxed text-stone-600">
         <section>
@@ -24,7 +24,7 @@ export default function AboutPage() {
           </h2>
           <p className="mt-3">
             I&apos;m a frontend developer with {yearsOfExperience} years of
-            experience building web applications. I created TextTools because I
+            experience building web applications. I created TextFixHub because I
             wanted a set of simple, well-designed text utilities that I could
             actually enjoy using — and I figured others might find them useful
             too.
@@ -43,7 +43,7 @@ export default function AboutPage() {
             updated.
           </p>
           <p className="mt-3">
-            My goal with TextTools is straightforward:{' '}
+            My goal with TextFixHub is straightforward:{' '}
             <strong>
               build practical tools that are genuinely useful and pleasant to
               use

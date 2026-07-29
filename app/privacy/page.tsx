@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'TextTools privacy policy: how we handle your data, cookies, and third-party services.',
+    'TextFixHub privacy policy: how we handle your data, cookies, and third-party services.',
   alternates: {
     canonical: '/privacy',
   },
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
             browser).
           </p>
           <p className="mt-3">
-            Currently, TextTools does not set any cookies of its own. However,
+            Currently, TextFixHub does not set any cookies of its own. However,
             we may introduce cookies in the future for the following purposes:
           </p>
           <ul className="mt-2 list-disc space-y-1 pl-5">

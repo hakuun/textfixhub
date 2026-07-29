@@ -6,7 +6,7 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title:
-    'Free Online Text Tools - Alphabetize, Count Sentences, Generate Random Text | TextTools',
+    'Free Online Text Tools - Alphabetize, Count Sentences, Generate Random Text | TextFixHub',
   description:
     'Free online text tools: alphabetize lists, remove line breaks, count sentences, generate random sentences and nouns. No sign-up required. All processing happens locally in your browser — your data never leaves your computer.',
   alternates: {
@@ -33,11 +33,11 @@ export default function Home() {
 
       <section className="mt-16 border-t border-stone-100 pt-12">
         <h2 className="text-2xl font-bold tracking-tight text-stone-900">
-          Why Use TextTools?
+          Why Use TextFixHub?
         </h2>
         <div className="mt-6 space-y-4 leading-relaxed text-stone-600">
           <p>
-            All TextTools run entirely in your browser using JavaScript. Your
+            All TextFixHub tools run entirely in your browser using JavaScript. Your
             text never leaves your computer — nothing is uploaded to a server,
             stored in a database, or shared with third parties. This makes our
             tools both <strong>fast</strong> (no network round-trips waiting
@@ -119,10 +119,10 @@ export default function Home() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          name: 'TextTools',
+          name: 'TextFixHub',
           description:
             'Free online text tools to alphabetize lists, remove line breaks, count sentences, and generate random text. All processing happens locally in your browser.',
-          url: 'https://texttools.example.com',
+          url: 'https://textfixhub.com',
         }}
       />
     </div>

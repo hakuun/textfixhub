@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'TextTools — Free Online Text Tools',
-    template: '%s | TextTools',
+    default: 'TextFixHub — Free Online Text Tools',
+    template: '%s | TextFixHub',
   },
   description:
     'Free online text tools to alphabetize lists, remove line breaks, count sentences, and generate random sentences and nouns. No sign-up required. Works instantly in your browser.',
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: 'TextTools — Free Online Text Tools',
+    title: 'TextFixHub — Free Online Text Tools',
     description:
       'Alphabetize, clean up text, count sentences, and generate random sentences and nouns. Free, instant, no sign-up.',
-    siteName: 'TextTools',
+    siteName: 'TextFixHub',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'TextTools — Free Online Text Tools',
+    title: 'TextFixHub — Free Online Text Tools',
     description:
       'Alphabetize, clean up text, count sentences, and generate random sentences and nouns. Free, instant, no sign-up.',
   },
@@ -60,7 +60,7 @@ export default function RootLayout({
                   className="h-7 w-7 rounded-md"
                   aria-hidden="true"
                 />
-                TextTools
+                TextFixHub
               </Link>
               <nav className="flex items-center gap-6 text-sm">
                 <Link
@@ -81,7 +81,7 @@ export default function RootLayout({
             <div className="mx-auto max-w-5xl px-4 py-8">
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
                 <p className="text-sm text-stone-400">
-                  &copy; {new Date().getFullYear()} TextTools. All tools run locally in your browser.
+                  &copy; {new Date().getFullYear()} TextFixHub. All tools run locally in your browser.
                 </p>
                 <nav className="flex gap-6 text-sm">
                   <Link

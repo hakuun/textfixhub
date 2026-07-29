@@ -8,7 +8,7 @@ import NounGeneratorDemo from './noun-generator-demo';
 import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Random Noun Generator - Free Online Noun Generator | TextTools',
+  title: 'Random Noun Generator - Free Online Noun Generator | TextFixHub',
   description:
     'Generate random English nouns instantly — perfect for classroom activities, word games, brainstorming, and creative writing. Choose your count. Free, no sign-up.',
   alternates: {
@@ -71,7 +71,7 @@ export default function RandomNounGeneratorPage() {
           name: 'Random Noun Generator',
           description:
             'Free online random noun generator — instantly generate random English nouns for word games, classroom activities, and brainstorming.',
-          url: 'https://texttools.example.com/tools/random-noun-generator',
+          url: 'https://textfixhub.com/tools/random-noun-generator',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

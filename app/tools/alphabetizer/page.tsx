@@ -9,7 +9,7 @@ import AlphabetizerDemo from './alphabetizer-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Alphabetizer - Free Online Alphabetize List Tool | TextTools',
+  title: 'Alphabetizer - Free Online Alphabetize List Tool | TextFixHub',
   description:
     'Alphabetize any list instantly — sort A to Z, remove duplicates, reverse order, custom separators, and HTML removal. Free online tool, no sign-up required.',
   alternates: {
@@ -71,7 +71,7 @@ export default function AlphabetizerPage() {
           name: 'Alphabetizer',
           description:
             'Free online tool to alphabetize any list — sort A to Z, remove duplicates, reverse order, and toggle case sensitivity.',
-          url: 'https://texttools.example.com/tools/alphabetizer',
+          url: 'https://textfixhub.com/tools/alphabetizer',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

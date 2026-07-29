@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
-    'Terms of use for TextTools — free online text utilities.',
+    'Terms of use for TextFixHub — free online text utilities.',
   alternates: {
     canonical: '/terms',
   },
@@ -21,14 +21,14 @@ export default function TermsPage() {
           </h2>
           <p className="mt-3">
             The tools on this Site are provided on an &quot;AS IS&quot; and
-            &quot;AS AVAILABLE&quot; basis. TextTools makes no
+            &quot;AS AVAILABLE&quot; basis. TextFixHub makes no
             representations or warranties of any kind, express or implied,
             regarding the accuracy, reliability, availability, or
             suitability of the tools for any particular purpose. Your use of
             the Site and its tools is at your own risk.
           </p>
           <p className="mt-3">
-            All text processing happens locally in your browser. TextTools
+            All text processing happens locally in your browser. TextFixHub
             does not see, store, or have access to any content you type or
             paste into the tools. You are solely responsible for the content
             you process and for ensuring you have the right to use it.
@@ -40,17 +40,17 @@ export default function TermsPage() {
             Limitation of Liability
           </h2>
           <p className="mt-3">
-            IN NO EVENT SHALL TEXTOOLS OR ITS OWNER BE LIABLE FOR ANY
+            IN NO EVENT SHALL TEXTFIXHUB OR ITS OWNER BE LIABLE FOR ANY
             SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES THAT ARE DIRECTLY
             OR INDIRECTLY RELATED TO THE USE OF, OR THE INABILITY TO USE,
-            THE SITE OR ITS TOOLS, EVEN IF TEXTOOLS OR AN AUTHORIZED
+            THE SITE OR ITS TOOLS, EVEN IF TEXTFIXHUB OR AN AUTHORIZED
             REPRESENTATIVE THEREOF HAS BEEN ADVISED OF THE POSSIBILITY OF
             SUCH DAMAGES. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OR
             EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES,
             SO SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.
           </p>
           <p className="mt-3">
-            IN NO EVENT SHALL THE TOTAL LIABILITY OF TEXTOOLS TO YOU FOR
+            IN NO EVENT SHALL THE TOTAL LIABILITY OF TEXTFIXHUB TO YOU FOR
             ALL DAMAGES, LOSSES, AND CAUSES OF ACTION (WHETHER IN CONTRACT
             OR TORT, INCLUDING, BUT NOT LIMITED TO, NEGLIGENCE OR OTHERWISE)
             ARISING FROM YOUR USE OF THE SITE EXCEED, IN THE AGGREGATE,
@@ -89,7 +89,7 @@ export default function TermsPage() {
             Intellectual Property
           </h2>
           <p className="mt-3">
-            The TextTools name and the code that powers the Site are the
+            The TextFixHub name and the code that powers the Site are the
             property of the Site owner. The tools are provided freely for
             public use. Any text you process through the tools remains
             entirely yours — we never see, collect, or claim any ownership

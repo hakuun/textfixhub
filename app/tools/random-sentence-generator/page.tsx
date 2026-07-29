@@ -9,7 +9,7 @@ import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
 export const metadata: Metadata = {
   title:
-    'Random Sentence Generator - Free Online Sentence Generator | TextTools',
+    'Random Sentence Generator - Free Online Sentence Generator | TextFixHub',
   description:
     'Generate random sentences for writing prompts, brainstorming, and creative exercises. 500 hand-written sentences — no AI slop, no grammar errors. Free, no sign-up.',
   alternates: {
@@ -98,7 +98,7 @@ export default function RandomSentenceGeneratorPage() {
           name: 'Random Sentence Generator',
           description:
             'Free online random sentence generator with 500 hand-written sentences for writing prompts and creative brainstorming. No AI slop, no grammar errors.',
-          url: 'https://texttools.example.com/tools/random-sentence-generator',
+          url: 'https://textfixhub.com/tools/random-sentence-generator',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

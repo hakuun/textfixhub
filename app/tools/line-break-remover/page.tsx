@@ -8,7 +8,7 @@ import LineBreakRemoverDemo from './line-break-remover-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Line Break Remover - Free Online Remove Line Breaks Tool | TextTools',
+  title: 'Line Break Remover - Free Online Remove Line Breaks Tool | TextFixHub',
   description:
     'Remove broken line breaks from pasted text instantly — clean up PDF, email, and chat copy-paste. Three modes: replace with space, remove with space, remove entirely. Free, no sign-up.',
   alternates: {
@@ -83,7 +83,7 @@ export default function LineBreakRemoverPage() {
           name: 'Line Break Remover',
           description:
             'Free online tool to remove broken line breaks from pasted text — clean up PDF and email copy-paste instantly.',
-          url: 'https://texttools.example.com/tools/line-break-remover',
+          url: 'https://textfixhub.com/tools/line-break-remover',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}
