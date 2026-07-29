@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/terms',
   },
+  openGraph: {
+    title: 'Terms of Use | TextFixHub',
+    description:
+      'Terms of use for TextFixHub — free online text utilities.',
+    siteName: 'TextFixHub',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Use | TextFixHub',
+    description:
+      'Terms of use for TextFixHub — free online text utilities.',
+  },
 };
 
 export default function TermsPage() {

@@ -84,7 +84,7 @@ export const ALL_TOOLS: ToolMeta[] = [
   {
     slug: 'sentence-counter',
     name: 'Sentence Counter',
-    description: 'Count sentences in your text — with smart abbreviation handling for accurate results.',
+    description: 'Complete text statistics dashboard — count sentences, words, characters, paragraphs, reading time, and more.',
     keyword: 'sentence counter',
     searchVolume: 18100,
     kd: 18,
@@ -92,7 +92,7 @@ export const ALL_TOOLS: ToolMeta[] = [
   {
     slug: 'random-sentence-generator',
     name: 'Random Sentence Generator',
-    description: 'Generate grammatically-plausible random sentences for writing prompts and brainstorming.',
+    description: 'Generate random sentences from a library of 500 hand-written sentences — no AI slop, no grammar errors.',
     keyword: 'random sentence generator',
     searchVolume: 4400,
     kd: 20,
@@ -100,7 +100,7 @@ export const ALL_TOOLS: ToolMeta[] = [
   {
     slug: 'random-noun-generator',
     name: 'Random Noun Generator',
-    description: 'Generate random English nouns — perfect for classroom activities and word games.',
+    description: 'Generate random English nouns from 2,228+ words — click to save and download as .txt. Perfect for games and brainstorming.',
     keyword: 'random noun generator',
     searchVolume: 4400,
     kd: 16,

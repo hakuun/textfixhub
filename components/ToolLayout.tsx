@@ -1,11 +1,33 @@
 import Link from 'next/link';
 import { ArrowLeft } from '@phosphor-icons/react/dist/ssr';
+import JsonLd from './JsonLd';
 
 interface ToolLayoutProps {
   children: React.ReactNode;
+  pageName?: string;
 }
 
-export default function ToolLayout({ children }: ToolLayoutProps) {
+export default function ToolLayout({ children, pageName }: ToolLayoutProps) {
+  const breadcrumbSchema = pageName
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'TextFixHub',
+            item: 'https://www.textfixhub.com',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: pageName,
+            item: `https://www.textfixhub.com/tools/${pageName.toLowerCase().replace(/\s+/g, '-')}`,
+          },
+        ],
+      }
+    : undefined;
   return (
     <>
       <div className="border-b border-stone-100 bg-stone-50/50 px-4 py-3">
@@ -20,6 +42,7 @@ export default function ToolLayout({ children }: ToolLayoutProps) {
         </div>
       </div>
       {children}
+      {breadcrumbSchema && <JsonLd data={breadcrumbSchema} />}
     </>
   );
 }

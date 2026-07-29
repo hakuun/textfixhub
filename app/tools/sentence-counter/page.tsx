@@ -3,24 +3,76 @@ import { countSentences } from '@/lib/text/sentence-counter';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import FaqSection from '@/components/FaqSection';
 import JsonLd from '@/components/JsonLd';
 import SentenceCounterDemo from './sentence-counter-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Sentence Counter - Free Online Text Statistics Tool | TextFixHub',
+  title: 'Sentence Counter - Free Online Text Statistics Tool',
   description:
     'Count sentences, words, characters, paragraphs, and more. Get reading time, speaking time, and detailed text statistics. Smart abbreviation handling. Free, no sign-up.',
   alternates: {
     canonical: '/tools/sentence-counter',
   },
+  openGraph: {
+    title: 'Sentence Counter — Free Online Text Statistics Tool | TextFixHub',
+    description:
+      'Count sentences, words, characters, paragraphs, and more. Get reading time, speaking time, and detailed text statistics. Smart abbreviation handling. Free, no sign-up.',
+    siteName: 'TextFixHub',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Sentence Counter — Free Online Text Statistics Tool | TextFixHub',
+    description:
+      'Count sentences, words, characters, paragraphs, and more. Get reading time, speaking time, and detailed text statistics. Smart abbreviation handling. Free, no sign-up.',
+  },
 };
 
 const workedExampleStats = countSentences(SAMPLE_INPUT);
 
+const SENTENCE_COUNTER_FAQS = [
+  {
+    question: 'How does the sentence counter work?',
+    answer:
+      'Paste any text and the tool instantly shows a complete statistics dashboard — sentences, words, characters, paragraphs, reading time, speaking time, and more. Everything updates in real time as you type.',
+  },
+  {
+    question: 'Does it handle abbreviations like Mr. and Dr.?',
+    answer:
+      'Yes. Unlike simple counters that naïvely split on every period, our tool recognizes common abbreviations (Mr., Mrs., Dr., e.g., i.e., etc., vs., U.S.A., Ph.D., and more) and does not count their periods as sentence endings.',
+  },
+  {
+    question: 'Does it count decimal numbers as sentence endings?',
+    answer:
+      'No. The tool correctly handles decimal numbers like 3.14 and version numbers like 2.0. These periods are not mistaken for sentence boundaries.',
+  },
+  {
+    question: 'How is reading time calculated?',
+    answer:
+      'Reading time is estimated at 200 words per minute, which is the average adult silent reading speed for English text. This gives readers a realistic estimate of how long your content will take to read.',
+  },
+  {
+    question: 'How is speaking time calculated?',
+    answer:
+      'Speaking time is estimated at 130 words per minute, reflecting a natural conversational pace for presentations and speeches.',
+  },
+  {
+    question: 'What statistics does the tool provide?',
+    answer:
+      'You get 10 metrics: sentence count, word count, character count (with and without spaces), paragraph count, line count, average sentence length (words), average word length (characters), estimated reading time, and estimated speaking time.',
+  },
+  {
+    question: 'Is my text stored or uploaded anywhere?',
+    answer:
+      'No. All text processing runs locally in your browser using JavaScript. Your content never leaves your device — we have no way to see, store, or access any text you paste.',
+  },
+];
+
 export default function SentenceCounterPage() {
   return (
-    <ToolLayout>
+    <ToolLayout pageName="Sentence Counter">
       <div className="mx-auto max-w-4xl px-4 py-8">
         <h1 className="text-3xl font-bold text-stone-900">Sentence Counter</h1>
         <p className="mt-2 text-lg text-stone-600">
@@ -154,6 +206,7 @@ export default function SentenceCounterPage() {
         </section>
 
         <ToolSidebar currentSlug="sentence-counter" />
+        <FaqSection faqs={SENTENCE_COUNTER_FAQS} />
       </div>
 
       <JsonLd
@@ -163,7 +216,7 @@ export default function SentenceCounterPage() {
           name: 'Sentence Counter',
           description:
             'Free online text statistics tool — count sentences, words, characters, paragraphs, reading time, and more with smart abbreviation handling.',
-          url: 'https://textfixhub.com/tools/sentence-counter',
+          url: 'https://www.textfixhub.com/tools/sentence-counter',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

@@ -122,7 +122,7 @@ export default function Home() {
           name: 'TextFixHub',
           description:
             'Free online text tools to alphabetize lists, remove line breaks, count sentences, and generate random text. All processing happens locally in your browser.',
-          url: 'https://textfixhub.com',
+          url: 'https://www.textfixhub.com',
         }}
       />
     </div>

@@ -4,18 +4,70 @@ import { DEFAULT_ALPHABETIZER_OPTIONS } from '@/lib/text/types';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import FaqSection from '@/components/FaqSection';
 import JsonLd from '@/components/JsonLd';
 import AlphabetizerDemo from './alphabetizer-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Alphabetizer - Free Online Alphabetize List Tool | TextFixHub',
+  title: 'Alphabetizer - Free Online Alphabetize List Tool',
   description:
     'Alphabetize any list instantly — sort A to Z, remove duplicates, reverse order, custom separators, and HTML removal. Free online tool, no sign-up required.',
   alternates: {
     canonical: '/tools/alphabetizer',
   },
+  openGraph: {
+    title: 'Alphabetizer — Free Online Alphabetize List Tool | TextFixHub',
+    description:
+      'Alphabetize any list instantly — sort A to Z, remove duplicates, reverse order, custom separators, and HTML removal. Free online tool, no sign-up required.',
+    siteName: 'TextFixHub',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Alphabetizer — Free Online Alphabetize List Tool | TextFixHub',
+    description:
+      'Alphabetize any list instantly — sort A to Z, remove duplicates, reverse order, custom separators, and HTML removal. Free online tool, no sign-up required.',
+  },
 };
+
+const ALPHABETIZER_FAQS = [
+  {
+    question: 'How does the alphabetizer tool work?',
+    answer:
+      'Paste your list into the input box (one item per line by default) and the tool instantly sorts it alphabetically — no button click needed. Results update automatically as you type.',
+  },
+  {
+    question: 'Can I sort in reverse order (Z to A)?',
+    answer:
+      'Yes. Check the "Reverse Order" toggle to sort from Z to A instead of A to Z.',
+  },
+  {
+    question: 'Does the tool remove duplicate entries?',
+    answer:
+      'You can optionally remove duplicates by checking the "Remove Duplicates" toggle. When enabled, any repeated lines in your list are automatically removed from the sorted output.',
+  },
+  {
+    question: 'What separators are supported for input and output?',
+    answer:
+      'You can choose from New line, Comma, Semicolon, Space, or a Custom separator of your choice. This lets you paste comma-separated values and get back newline-separated results, or vice versa.',
+  },
+  {
+    question: 'Is my data safe when using this alphabetizer?',
+    answer:
+      'Yes. All processing happens locally in your browser using JavaScript. Your text never leaves your computer — nothing is uploaded to a server, stored in a database, or shared with third parties.',
+  },
+  {
+    question: 'Can I remove HTML tags from my list?',
+    answer:
+      'Yes. Enable the "Remove HTML" toggle to strip any HTML tags from your list items before sorting. This is useful when copying content from web pages or HTML source.',
+  },
+  {
+    question: 'Does this tool work on mobile devices?',
+    answer:
+      'Yes. The alphabetizer is fully responsive and works on phones and tablets. It has been tested on iOS Safari and Android Chrome.',
+  },
+];
 
 const workedExampleOutput = alphabetize(
   SAMPLE_INPUT,
@@ -24,7 +76,7 @@ const workedExampleOutput = alphabetize(
 
 export default function AlphabetizerPage() {
   return (
-    <ToolLayout>
+    <ToolLayout pageName="Alphabetizer">
       <div className="mx-auto max-w-4xl px-4 py-8">
         <h1 className="text-3xl font-bold text-stone-900">Alphabetizer</h1>
         <p className="mt-2 text-lg text-stone-600">
@@ -62,6 +114,7 @@ export default function AlphabetizerPage() {
         </section>
 
         <ToolSidebar currentSlug="alphabetizer" />
+        <FaqSection faqs={ALPHABETIZER_FAQS} />
       </div>
 
       <JsonLd
@@ -71,7 +124,7 @@ export default function AlphabetizerPage() {
           name: 'Alphabetizer',
           description:
             'Free online tool to alphabetize any list — sort A to Z, remove duplicates, reverse order, and toggle case sensitivity.',
-          url: 'https://textfixhub.com/tools/alphabetizer',
+          url: 'https://www.textfixhub.com/tools/alphabetizer',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

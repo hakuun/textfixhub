@@ -3,25 +3,77 @@ import { generateSentences } from '@/lib/text/generate-sentences';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import FaqSection from '@/components/FaqSection';
 import JsonLd from '@/components/JsonLd';
 import SentenceGeneratorDemo from './sentence-generator-demo';
 import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
 export const metadata: Metadata = {
   title:
-    'Random Sentence Generator - Free Online Sentence Generator | TextFixHub',
+    'Random Sentence Generator - Free Online Sentence Generator',
   description:
     'Generate random sentences for writing prompts, brainstorming, and creative exercises. 500 hand-written sentences — no AI slop, no grammar errors. Free, no sign-up.',
   alternates: {
     canonical: '/tools/random-sentence-generator',
   },
+  openGraph: {
+    title: 'Random Sentence Generator — Free Online Sentence Generator | TextFixHub',
+    description:
+      'Generate random sentences for writing prompts, brainstorming, and creative exercises. 500 hand-written sentences — no AI slop, no grammar errors. Free, no sign-up.',
+    siteName: 'TextFixHub',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Random Sentence Generator — Free Online Sentence Generator | TextFixHub',
+    description:
+      'Generate random sentences for writing prompts, brainstorming, and creative exercises. 500 hand-written sentences — no AI slop, no grammar errors. Free, no sign-up.',
+  },
 };
 
 const ssgSentences = generateSentences({ count: DEFAULT_COUNT, seed: SSG_SEED });
 
+const SENTENCE_GENERATOR_FAQS = [
+  {
+    question: 'How does the random sentence generator work?',
+    answer:
+      'Choose how many sentences you want (1 to 500) and click Generate. The tool randomly selects sentences from a hand-written library of 500 unique sentences — no AI generation, no templates, no grammar errors.',
+  },
+  {
+    question: 'Are the sentences AI-generated?',
+    answer:
+      'No. Every sentence in our library was written by a human. We deliberately avoided AI-generated and template-based approaches because they produce awkward, predictable results. Our sentences are grammatically correct and genuinely interesting.',
+  },
+  {
+    question: 'How many sentences can I generate at once?',
+    answer:
+      'You can generate anywhere from 1 to 500 sentences in a single click. Each generation pulls from our full library of 500 unique sentences, so you\'ll always get fresh combinations.',
+  },
+  {
+    question: 'What types of sentences are in the library?',
+    answer:
+      'The library contains four categories: story starters (40%), absurd situations (25%), dialogue openers (20%), and mystery hooks (15%). This mix ensures variety — whether you need a creative writing prompt or a conversation starter.',
+  },
+  {
+    question: 'Can I use these sentences for writing prompts?',
+    answer:
+      'Absolutely. The sentences are specifically designed as creative writing prompts. Teachers use them for classroom exercises, writers use them to overcome writer\'s block, and game masters use them for RPG scenarios.',
+  },
+  {
+    question: 'Are the sentences grammatically correct?',
+    answer:
+      'Yes. Each sentence was hand-written and reviewed for grammar. Unlike template-based generators that can produce errors like subject-verb mismatches, every sentence in our library is correct.',
+  },
+  {
+    question: 'Is there any cost or sign-up required?',
+    answer:
+      'No. The random sentence generator is completely free. No sign-up, no account, no download. Just open the page and start generating.',
+  },
+];
+
 export default function RandomSentenceGeneratorPage() {
   return (
-    <ToolLayout>
+    <ToolLayout pageName="Random Sentence Generator">
       <div className="mx-auto max-w-4xl px-4 py-8">
         <h1 className="text-3xl font-bold text-stone-900">
           Random Sentence Generator
@@ -89,6 +141,7 @@ export default function RandomSentenceGeneratorPage() {
         </section>
 
         <ToolSidebar currentSlug="random-sentence-generator" />
+        <FaqSection faqs={SENTENCE_GENERATOR_FAQS} />
       </div>
 
       <JsonLd
@@ -98,7 +151,7 @@ export default function RandomSentenceGeneratorPage() {
           name: 'Random Sentence Generator',
           description:
             'Free online random sentence generator with 500 hand-written sentences for writing prompts and creative brainstorming. No AI slop, no grammar errors.',
-          url: 'https://textfixhub.com/tools/random-sentence-generator',
+          url: 'https://www.textfixhub.com/tools/random-sentence-generator',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Any',
         }}

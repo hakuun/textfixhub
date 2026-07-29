@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/privacy',
   },
+  openGraph: {
+    title: 'Privacy Policy | TextFixHub',
+    description:
+      'TextFixHub privacy policy: how we handle your data, cookies, and third-party services.',
+    siteName: 'TextFixHub',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | TextFixHub',
+    description:
+      'TextFixHub privacy policy: how we handle your data, cookies, and third-party services.',
+  },
 };
 
 export default function PrivacyPage() {

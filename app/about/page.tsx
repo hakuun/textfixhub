@@ -4,11 +4,24 @@ const CAREER_START_YEAR = 2020;
 const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
 
 export const metadata: Metadata = {
-  title: 'About TextFixHub',
+  title: 'About',
   description:
     'TextFixHub is built by Hakuun, a frontend developer. Simple, practical text tools that run locally in your browser.',
   alternates: {
     canonical: '/about',
+  },
+  openGraph: {
+    title: 'About TextFixHub — Free Online Text Tools',
+    description:
+      'TextFixHub is built by Hakuun, a frontend developer. Simple, practical text tools that run locally in your browser.',
+    siteName: 'TextFixHub',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'About TextFixHub — Free Online Text Tools',
+    description:
+      'TextFixHub is built by Hakuun, a frontend developer. Simple, practical text tools that run locally in your browser.',
   },
 };
 
