@@ -51,13 +51,13 @@ export default function NounGeneratorDemo() {
         />
         <button
           onClick={handleGenerate}
-          className="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-medium text-white transition-all hover:bg-emerald-700 active:scale-95"
+          className="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-medium text-white transition-[background-color,scale] duration-150 ease-out hover:bg-emerald-700 active:scale-[0.96]"
         >
           Generate
         </button>
       </div>
 
-      <p className="text-xs text-stone-400">
+      <p className="text-xs text-stone-500">
         Drawing from {nounListSize}+ English nouns. Click any noun to save it.
       </p>
 
@@ -75,7 +75,7 @@ export default function NounGeneratorDemo() {
               key={`${noun}-${i}`}
               onClick={() => handleSaveNoun(noun)}
               disabled={saved.includes(noun)}
-              className={`rounded-full px-3 py-1 text-sm transition-all active:scale-95 ${
+              className={`rounded-full px-3 py-1 text-sm transition-[background-color,color,scale] duration-150 ease-out active:scale-[0.96] ${
                 saved.includes(noun)
                   ? 'bg-emerald-100 text-emerald-600 cursor-default'
                   : 'bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-600'
@@ -97,13 +97,13 @@ export default function NounGeneratorDemo() {
             <div className="flex gap-2">
               <button
                 onClick={handleDownload}
-                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-all hover:bg-emerald-100 active:scale-95"
+                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-[background-color,scale] duration-150 ease-out hover:bg-emerald-100 active:scale-[0.96]"
               >
                 Download (.txt)
               </button>
               <button
                 onClick={() => setSaved([])}
-                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-all hover:bg-emerald-100 active:scale-95"
+                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-[background-color,scale] duration-150 ease-out hover:bg-emerald-100 active:scale-[0.96]"
               >
                 Clear All
               </button>
@@ -111,14 +111,14 @@ export default function NounGeneratorDemo() {
           </div>
           <div className="mt-2 flex flex-wrap gap-1">
             {saved.map((noun) => (
-              <span
+              <button
                 key={noun}
                 onClick={() => handleRemoveSaved(noun)}
-                className="cursor-pointer rounded-full bg-emerald-100 px-2 py-0.5 text-xs text-emerald-800 transition-all hover:bg-red-100 hover:text-red-700 hover:line-through active:scale-95"
+                className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs text-emerald-800 transition-[background-color,color,scale] duration-150 ease-out hover:bg-red-100 hover:text-red-700 hover:line-through active:scale-[0.96]"
                 title="Click to remove"
               >
                 {noun} &times;
-              </span>
+              </button>
             ))}
           </div>
         </div>

@@ -132,6 +132,7 @@ export default function AlphabetizerDemo() {
       <div className="grid gap-4 md:grid-cols-2">
         <TextInput
           label="Your List"
+          rows={12}
           placeholder={opts.inputSeparator === 'newline'
             ? 'Paste your list here, one item per line...'
             : `Paste your list here (separated by ${opts.inputSeparator})...`

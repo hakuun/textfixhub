@@ -30,7 +30,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
       className="card-surface group block p-5 hover:border-emerald-200 hover:shadow-md hover:shadow-stone-200/50"
     >
       <div className="flex items-start gap-3">
-        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-stone-50 text-stone-500 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition-colors">
+        <span aria-hidden="true" className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-stone-50 text-stone-500 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition-colors">
           <IconComponent className="h-4 w-4" weight="duotone" />
         </span>
         <div>

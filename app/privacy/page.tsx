@@ -26,7 +26,7 @@ export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
       <h1 className="text-3xl font-bold text-stone-900">Privacy Policy</h1>
-      <p className="mt-2 text-sm text-stone-400">
+      <p className="mt-2 text-sm text-stone-500">
         Effective as of July 29, 2026
       </p>
 

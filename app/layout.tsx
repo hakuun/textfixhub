@@ -80,25 +80,25 @@ export default function RootLayout({
           <footer className="border-t border-stone-100">
             <div className="mx-auto max-w-5xl px-4 py-8">
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-                <p className="text-sm text-stone-400">
+                <p className="text-sm text-stone-500">
                   &copy; {new Date().getFullYear()} TextFixHub. All tools run locally in your browser.
                 </p>
                 <nav className="flex gap-6 text-sm">
                   <Link
                     href="/about"
-                    className="text-stone-400 hover:text-stone-600 transition-colors"
+                    className="text-stone-500 hover:text-stone-700 transition-colors"
                   >
                     About
                   </Link>
                   <Link
                     href="/privacy"
-                    className="text-stone-400 hover:text-stone-600 transition-colors"
+                    className="text-stone-500 hover:text-stone-700 transition-colors"
                   >
                     Privacy
                   </Link>
                   <Link
                     href="/terms"
-                    className="text-stone-400 hover:text-stone-600 transition-colors"
+                    className="text-stone-500 hover:text-stone-700 transition-colors"
                   >
                     Terms
                   </Link>

@@ -13,7 +13,7 @@ export default function WorkedExample({
 }: WorkedExampleProps) {
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-xl border border-stone-200 bg-stone-50 p-5">
+      <div className="rounded-xl bg-stone-50 p-5" style={{ boxShadow: '0 0 0 1px oklch(0 0 0 / 0.06), 0 1px 2px -1px oklch(0 0 0 / 0.06), 0 2px 4px 0 oklch(0 0 0 / 0.04)' }}>
         <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-stone-500">
           {inputLabel}
         </h3>

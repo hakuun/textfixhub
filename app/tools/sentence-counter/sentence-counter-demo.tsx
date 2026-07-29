@@ -15,7 +15,7 @@ function StatTile({
   unit?: string;
 }) {
   return (
-    <div className="rounded-xl border border-stone-200 bg-white px-4 py-3 text-center">
+    <div className="card-surface rounded-xl bg-white px-4 py-3 text-center">
       <div className="text-2xl font-bold text-emerald-700 tabular-nums">
         {value}
         {unit ? <span className="ml-0.5 text-sm font-normal text-emerald-500">{unit}</span> : null}
@@ -89,7 +89,7 @@ export default function SentenceCounterDemo() {
         <div className="flex gap-2">
           <button
             onClick={handleCopyStats}
-            className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-medium text-stone-500 transition-all hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-95"
+            className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-medium text-stone-500 transition-[color,background-color,border-color,scale] duration-150 ease-out hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-[0.96]"
           >
             Copy Statistics
           </button>
