@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface TextInputProps {
   placeholder?: string;
@@ -19,24 +19,36 @@ export default function TextInput({
 }: TextInputProps) {
   const [localValue, setLocalValue] = useState(value);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isTypingRef = useRef(false);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       const newValue = e.target.value;
       setLocalValue(newValue);
+      isTypingRef.current = true;
 
       if (timerRef.current) clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => {
+        isTypingRef.current = false;
         onChange(newValue);
       }, debounceMs);
     },
     [onChange, debounceMs],
   );
 
-  // Sync external value changes (e.g., sample data load)
-  if (value !== localValue && !timerRef.current) {
-    // Only sync if not currently typing
-  }
+  // Sync external value changes (e.g., sample data load, clear button)
+  useEffect(() => {
+    if (!isTypingRef.current) {
+      setLocalValue(value);
+    }
+  }, [value]);
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   return (
     <div>

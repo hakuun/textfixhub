@@ -1,5 +1,8 @@
 import type { AlphabetizerOptions, SeparatorPreset } from './types';
 
+/** Hoisted regex for HTML tag stripping (js-hoist-regexp) */
+const HTML_TAG_RE = /<[^>]*>/g;
+
 /** Map separator preset to actual delimiter */
 function getSeparator(preset: SeparatorPreset, custom: string): string {
   switch (preset) {
@@ -14,7 +17,7 @@ function getSeparator(preset: SeparatorPreset, custom: string): string {
 
 /** Strip HTML tags from a string */
 function stripHTML(text: string): string {
-  return text.replace(/<[^>]*>/g, '');
+  return text.replace(HTML_TAG_RE, '');
 }
 
 /**

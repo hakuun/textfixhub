@@ -4,6 +4,7 @@ import { DEFAULT_ALPHABETIZER_OPTIONS } from '@/lib/text/types';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import JsonLd from '@/components/JsonLd';
 import AlphabetizerDemo from './alphabetizer-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
@@ -63,20 +64,16 @@ export default function AlphabetizerPage() {
         <ToolSidebar currentSlug="alphabetizer" />
       </div>
 
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Alphabetizer',
-            description:
-              'Free online tool to alphabetize any list — sort A to Z, remove duplicates, reverse order, and toggle case sensitivity.',
-            url: 'https://texttools.example.com/tools/alphabetizer',
-            applicationCategory: 'UtilityApplication',
-            operatingSystem: 'Any',
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'Alphabetizer',
+          description:
+            'Free online tool to alphabetize any list — sort A to Z, remove duplicates, reverse order, and toggle case sensitivity.',
+          url: 'https://texttools.example.com/tools/alphabetizer',
+          applicationCategory: 'UtilityApplication',
+          operatingSystem: 'Any',
         }}
       />
     </ToolLayout>

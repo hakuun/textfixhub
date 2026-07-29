@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ALL_TOOLS } from '@/lib/text/types';
 import ToolCard from '@/components/ToolCard';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title:
@@ -114,17 +115,14 @@ export default function Home() {
         </div>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'TextTools',
-            description:
-              'Free online text tools to alphabetize lists, remove line breaks, count sentences, and generate random text. All processing happens locally in your browser.',
-            url: 'https://texttools.example.com',
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'TextTools',
+          description:
+            'Free online text tools to alphabetize lists, remove line breaks, count sentences, and generate random text. All processing happens locally in your browser.',
+          url: 'https://texttools.example.com',
         }}
       />
     </div>

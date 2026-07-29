@@ -3,6 +3,7 @@ import { generateNouns } from '@/lib/text/generate-nouns';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import JsonLd from '@/components/JsonLd';
 import NounGeneratorDemo from './noun-generator-demo';
 import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
@@ -63,19 +64,16 @@ export default function RandomNounGeneratorPage() {
         <ToolSidebar currentSlug="random-noun-generator" />
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Random Noun Generator',
-            description:
-              'Free online random noun generator — instantly generate random English nouns for word games, classroom activities, and brainstorming.',
-            url: 'https://texttools.example.com/tools/random-noun-generator',
-            applicationCategory: 'UtilityApplication',
-            operatingSystem: 'Any',
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'Random Noun Generator',
+          description:
+            'Free online random noun generator — instantly generate random English nouns for word games, classroom activities, and brainstorming.',
+          url: 'https://texttools.example.com/tools/random-noun-generator',
+          applicationCategory: 'UtilityApplication',
+          operatingSystem: 'Any',
         }}
       />
     </ToolLayout>

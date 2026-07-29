@@ -13,8 +13,7 @@ export default function NounGeneratorDemo() {
   const nounListSize = getNounListSize();
 
   const handleGenerate = useCallback(() => {
-    const clamped = Math.min(count, 500);
-    const nouns = generateNouns({ count: clamped });
+    const nouns = generateNouns({ count });
     setOutput(nouns.join('\n'));
   }, [count]);
 

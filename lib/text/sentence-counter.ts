@@ -1,5 +1,18 @@
 import type { TextStatistics } from './types';
 
+// ── Hoisted regex patterns (js-hoist-regexp) ──
+const ALPHA_DOT_RE = /[A-Za-z.]/;
+const DIGIT_RE = /\d/;
+const DIGIT_DOT_DIGIT_RE = /\d\.\d/;
+const WHITESPACE_RE = /\s/;
+const UPPERCASE_RE = /[A-Z]/;
+const LETTER_RE = /[a-zA-Z]/;
+const WHITESPACE_SPLIT_RE = /\s+/;
+const ALL_WHITESPACE_RE = /\s/g;
+const LINE_ENDING_RE = /\r\n/g;
+const CR_RE = /\r/g;
+const DOUBLE_NEWLINE_RE = /\n{2,}/;
+
 /**
  * Known English abbreviations that should NOT trigger sentence boundaries.
  */
@@ -14,12 +27,12 @@ const ABBREVIATIONS = new Set([
  */
 function isAbbreviation(text: string, periodIndex: number): boolean {
   let start = periodIndex;
-  while (start > 0 && /[A-Za-z.]/.test(text[start - 1])) {
+  while (start > 0 && ALPHA_DOT_RE.test(text[start - 1])) {
     start--;
   }
 
   let end = periodIndex;
-  while (end < text.length - 1 && /[A-Za-z.]/.test(text[end + 1])) {
+  while (end < text.length - 1 && ALPHA_DOT_RE.test(text[end + 1])) {
     end++;
   }
 
@@ -53,14 +66,14 @@ function isDecimalNumber(text: string, periodIndex: number): boolean {
   if (
     periodIndex > 0 &&
     periodIndex < text.length - 1 &&
-    /\d/.test(text[periodIndex - 1]) &&
-    /\d/.test(text[periodIndex + 1])
+    DIGIT_RE.test(text[periodIndex - 1]) &&
+    DIGIT_RE.test(text[periodIndex + 1])
   ) {
     return true;
   }
   const before = text.slice(Math.max(0, periodIndex - 5), periodIndex);
   const after = text.slice(periodIndex + 1, periodIndex + 3);
-  if (/\d\.\d/.test(before.slice(-2) + '.' + after.charAt(0))) {
+  if (DIGIT_DOT_DIGIT_RE.test(before.slice(-2) + '.' + after.charAt(0))) {
     return true;
   }
   return false;
@@ -85,15 +98,15 @@ function isSentenceBoundary(text: string, periodIndex: number): boolean {
   if (isEllipsisNonBoundary(text, periodIndex)) return false;
 
   let i = periodIndex + 1;
-  while (i < text.length && /\s/.test(text[i]) && text[i] !== '\n') {
+  while (i < text.length && WHITESPACE_RE.test(text[i]) && text[i] !== '\n') {
     i++;
   }
 
   if (i >= text.length) return true;
 
   const nextChar = text[i];
-  if (/[A-Z]/.test(nextChar)) return true;
-  if (nextChar && !/[a-zA-Z]/.test(nextChar)) return true;
+  if (UPPERCASE_RE.test(nextChar)) return true;
+  if (nextChar && !LETTER_RE.test(nextChar)) return true;
 
   return false;
 }
@@ -147,7 +160,7 @@ function splitSentences(text: string): string[] {
  */
 function countWords(text: string): number {
   if (!text.trim()) return 0;
-  return text.trim().split(/\s+/).length;
+  return text.trim().split(WHITESPACE_SPLIT_RE).length;
 }
 
 /**
@@ -197,12 +210,12 @@ export function countSentences(input: string): TextStatistics {
 
   // Character counts
   const charCountWithSpaces = text.length;
-  const charCountWithoutSpaces = text.replace(/\s/g, '').length;
+  const charCountWithoutSpaces = text.replace(ALL_WHITESPACE_RE, '').length;
 
   // Paragraphs: blocks separated by 2+ newlines (normalize first)
-  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const normalized = text.replace(LINE_ENDING_RE, '\n').replace(CR_RE, '\n');
   const paragraphs = normalized
-    .split(/\n{2,}/)
+    .split(DOUBLE_NEWLINE_RE)
     .map(p => p.trim())
     .filter(p => p.length > 0);
   const paragraphCount = paragraphs.length;

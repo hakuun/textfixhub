@@ -3,6 +3,7 @@ import { generateSentences } from '@/lib/text/generate-sentences';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import JsonLd from '@/components/JsonLd';
 import SentenceGeneratorDemo from './sentence-generator-demo';
 import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
@@ -90,19 +91,16 @@ export default function RandomSentenceGeneratorPage() {
         <ToolSidebar currentSlug="random-sentence-generator" />
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Random Sentence Generator',
-            description:
-              'Free online random sentence generator with 500 hand-written sentences for writing prompts and creative brainstorming. No AI slop, no grammar errors.',
-            url: 'https://texttools.example.com/tools/random-sentence-generator',
-            applicationCategory: 'UtilityApplication',
-            operatingSystem: 'Any',
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'Random Sentence Generator',
+          description:
+            'Free online random sentence generator with 500 hand-written sentences for writing prompts and creative brainstorming. No AI slop, no grammar errors.',
+          url: 'https://texttools.example.com/tools/random-sentence-generator',
+          applicationCategory: 'UtilityApplication',
+          operatingSystem: 'Any',
         }}
       />
     </ToolLayout>

@@ -3,6 +3,7 @@ import { countSentences } from '@/lib/text/sentence-counter';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import JsonLd from '@/components/JsonLd';
 import SentenceCounterDemo from './sentence-counter-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
@@ -155,19 +156,16 @@ export default function SentenceCounterPage() {
         <ToolSidebar currentSlug="sentence-counter" />
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Sentence Counter',
-            description:
-              'Free online text statistics tool — count sentences, words, characters, paragraphs, reading time, and more with smart abbreviation handling.',
-            url: 'https://texttools.example.com/tools/sentence-counter',
-            applicationCategory: 'UtilityApplication',
-            operatingSystem: 'Any',
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'Sentence Counter',
+          description:
+            'Free online text statistics tool — count sentences, words, characters, paragraphs, reading time, and more with smart abbreviation handling.',
+          url: 'https://texttools.example.com/tools/sentence-counter',
+          applicationCategory: 'UtilityApplication',
+          operatingSystem: 'Any',
         }}
       />
     </ToolLayout>

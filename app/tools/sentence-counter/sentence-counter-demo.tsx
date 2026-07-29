@@ -18,7 +18,7 @@ function StatTile({
     <div className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-center">
       <div className="text-2xl font-bold text-blue-700">
         {value}
-        {unit && <span className="ml-0.5 text-sm font-normal text-blue-500">{unit}</span>}
+        {unit ? <span className="ml-0.5 text-sm font-normal text-blue-500">{unit}</span> : null}
       </div>
       <div className="mt-0.5 text-xs text-gray-500">{label}</div>
     </div>

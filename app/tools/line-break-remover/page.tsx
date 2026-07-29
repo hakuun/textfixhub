@@ -3,6 +3,7 @@ import { removeLineBreaks } from '@/lib/text/remove-line-breaks';
 import ToolLayout from '@/components/ToolLayout';
 import WorkedExample from '@/components/WorkedExample';
 import ToolSidebar from '@/components/ToolSidebar';
+import JsonLd from '@/components/JsonLd';
 import LineBreakRemoverDemo from './line-break-remover-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
@@ -75,19 +76,16 @@ export default function LineBreakRemoverPage() {
         <ToolSidebar currentSlug="line-break-remover" />
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Line Break Remover',
-            description:
-              'Free online tool to remove broken line breaks from pasted text — clean up PDF and email copy-paste instantly.',
-            url: 'https://texttools.example.com/tools/line-break-remover',
-            applicationCategory: 'UtilityApplication',
-            operatingSystem: 'Any',
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'Line Break Remover',
+          description:
+            'Free online tool to remove broken line breaks from pasted text — clean up PDF and email copy-paste instantly.',
+          url: 'https://texttools.example.com/tools/line-break-remover',
+          applicationCategory: 'UtilityApplication',
+          operatingSystem: 'Any',
         }}
       />
     </ToolLayout>

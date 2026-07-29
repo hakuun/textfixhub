@@ -1,4 +1,4 @@
-import { RELATED_TOOLS, getToolBySlug } from '@/lib/text/types';
+import { RELATED_TOOLS, getToolBySlug, type ToolMeta } from '@/lib/text/types';
 import ToolCard from './ToolCard';
 
 interface ToolSidebarProps {
@@ -11,7 +11,7 @@ export default function ToolSidebar({ currentSlug }: ToolSidebarProps) {
 
   const relatedTools = relatedSlugs
     .map((slug) => getToolBySlug(slug))
-    .filter(Boolean);
+    .filter((t): t is ToolMeta => t !== undefined);
 
   return (
     <section className="mt-12 border-t border-gray-100 pt-8">
@@ -19,7 +19,7 @@ export default function ToolSidebar({ currentSlug }: ToolSidebarProps) {
         Related Tools
       </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {relatedTools.map((tool) => tool && <ToolCard key={tool.slug} tool={tool} />)}
+        {relatedTools.map((tool) => <ToolCard key={tool.slug} tool={tool} />)}
       </div>
     </section>
   );
