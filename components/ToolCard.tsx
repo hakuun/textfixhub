@@ -27,17 +27,20 @@ export default function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link
       href={`/tools/${tool.slug}`}
-      className="card-surface group block p-5 hover:border-emerald-200 hover:shadow-md hover:shadow-stone-200/50"
+      className="card-surface group block p-5"
     >
-      <div className="flex items-start gap-3">
-        <span aria-hidden="true" className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-stone-50 text-stone-500 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition-colors">
-          <IconComponent className="h-4 w-4" weight="duotone" />
+      <div className="flex items-start gap-3.5">
+        <span
+          aria-hidden="true"
+          className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-stone-100 text-stone-500 group-hover:bg-emerald-100 group-hover:text-emerald-600 transition-all duration-200 group-hover:scale-110"
+        >
+          <IconComponent className="h-[18px] w-[18px]" weight="duotone" />
         </span>
-        <div>
-          <h2 className="text-base font-semibold text-stone-900 group-hover:text-emerald-700 transition-colors">
+        <div className="min-w-0">
+          <h2 className="text-[15px] font-semibold text-stone-900 group-hover:text-emerald-700 transition-colors truncate">
             {tool.name}
           </h2>
-          <p className="mt-1 text-sm text-stone-500 leading-relaxed">
+          <p className="mt-1 text-[13px] text-stone-500 leading-relaxed line-clamp-2">
             {tool.description}
           </p>
         </div>

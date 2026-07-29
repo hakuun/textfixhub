@@ -1,36 +1,42 @@
 @import "tailwindcss";
 
 /* ── Design tokens (Tailwind v4 @theme) ── */
+/* Override Stone with a refined warm neutral palette (OKLCH).
+   Hue ~85–90 gives a subtle warmth without looking beige.
+   This keeps all existing `stone-*` class references working. */
 @theme {
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 
-  /* Stone neutral palette as default gray */
-  --color-stone-50: #fafaf9;
-  --color-stone-100: #f5f5f4;
-  --color-stone-200: #e7e5e4;
-  --color-stone-300: #d6d3d1;
-  --color-stone-400: #a8a29e;
-  --color-stone-500: #78716c;
-  --color-stone-600: #57534e;
-  --color-stone-700: #44403c;
-  --color-stone-800: #292524;
-  --color-stone-900: #1c1917;
-  --color-stone-950: #0c0a09;
+  /* Warm neutral — refined Stone override */
+  --color-stone-50: oklch(0.985 0.0025 88);
+  --color-stone-100: oklch(0.963 0.004 88);
+  --color-stone-200: oklch(0.918 0.006 86);
+  --color-stone-300: oklch(0.855 0.010 84);
+  --color-stone-400: oklch(0.705 0.012 82);
+  --color-stone-500: oklch(0.552 0.014 80);
+  --color-stone-600: oklch(0.438 0.012 80);
+  --color-stone-700: oklch(0.340 0.010 78);
+  --color-stone-800: oklch(0.248 0.008 78);
+  --color-stone-900: oklch(0.178 0.005 75);
+  --color-stone-950: oklch(0.118 0.004 75);
 
-  /* Emerald accent */
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-200: #a7f3d0;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
-  --color-emerald-800: #065f46;
-  --color-emerald-900: #064e3b;
-  --color-emerald-950: #022c22;
+  /* Rich teal accent — Emerald override.
+     Deeper and more sophisticated than default Tailwind emerald.
+     Hue sweep 172→192 keeps harmony across the scale. */
+  --color-emerald-50: oklch(0.972 0.020 175);
+  --color-emerald-100: oklch(0.930 0.045 175);
+  --color-emerald-200: oklch(0.858 0.075 177);
+  --color-emerald-300: oklch(0.778 0.100 179);
+  --color-emerald-400: oklch(0.692 0.108 181);
+  --color-emerald-500: oklch(0.605 0.102 183);
+  --color-emerald-600: oklch(0.520 0.088 185);
+  --color-emerald-700: oklch(0.440 0.072 187);
+  --color-emerald-800: oklch(0.365 0.056 189);
+  --color-emerald-900: oklch(0.295 0.043 191);
+  --color-emerald-950: oklch(0.182 0.032 193);
 
+  /* Refined radii */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -39,9 +45,10 @@
 
 /* ── Base ── */
 body {
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-feature-settings: "calt", "liga", "kern", "cv02", "cv03", "cv04", "cv11", "ss02";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ── Focus ring utility ── */
@@ -51,36 +58,78 @@ body {
 
 /* ── Card surface utility ── */
 .card-surface {
-  @apply rounded-xl bg-white transition-[box-shadow] duration-150 ease-out;
+  @apply rounded-xl bg-white transition-all duration-200 ease-out;
   box-shadow:
-    0 0 0 1px oklch(0 0 0 / 0.06),
-    0 1px 2px -1px oklch(0 0 0 / 0.06),
-    0 2px 4px 0 oklch(0 0 0 / 0.04);
+    0 0 0 1px oklch(0 0 0 / 0.05),
+    0 1px 2px 0 oklch(0 0 0 / 0.04),
+    0 2px 8px -2px oklch(0 0 0 / 0.06);
 }
 .card-surface:hover {
   box-shadow:
     0 0 0 1px oklch(0 0 0 / 0.08),
-    0 1px 2px -1px oklch(0 0 0 / 0.08),
-    0 2px 4px 0 oklch(0 0 0 / 0.06);
+    0 2px 4px 0 oklch(0 0 0 / 0.06),
+    0 4px 16px -4px oklch(0 0 0 / 0.10);
+  transform: translateY(-1px);
+}
+
+/* ── Glass surface (for header) ── */
+.glass-surface {
+  background: oklch(1 0 0 / 0.82);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
 }
 
 /* ── Selection color ── */
 ::selection {
-  background-color: #a7f3d0; /* emerald-200 */
-  color: #022c22; /* emerald-950 */
+  background-color: oklch(0.858 0.075 177); /* teal-200 */
+  color: oklch(0.182 0.032 193); /* teal-950 */
 }
 
 /* ── Scrollbar subtle ── */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d6d3d1; /* stone-300 */
+  background: oklch(0.855 0.010 84); /* warm-300 */
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a29e; /* stone-400 */
+  background: oklch(0.705 0.012 82); /* warm-400 */
 }
+
+/* ── Input autofill override ── */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  -webkit-text-fill-color: oklch(0.178 0.005 75);
+}
+
+/* ── Smooth page enter (no JS, pure CSS) ── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: fade-in-up 0.35s ease-out both;
+}
+
+/* Stagger children */
+.animate-enter > * {
+  animation: fade-in-up 0.35s ease-out both;
+}
+.animate-enter > *:nth-child(1) { animation-delay: 0.05s; }
+.animate-enter > *:nth-child(2) { animation-delay: 0.1s; }
+.animate-enter > *:nth-child(3) { animation-delay: 0.15s; }
+.animate-enter > *:nth-child(4) { animation-delay: 0.2s; }
+.animate-enter > *:nth-child(5) { animation-delay: 0.25s; }

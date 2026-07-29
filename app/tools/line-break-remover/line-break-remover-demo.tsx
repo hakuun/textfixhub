@@ -24,6 +24,9 @@ const MODES: { value: LineBreakMode; label: string; desc: string }[] = [
   },
 ];
 
+const radioClasses =
+  'mt-0.5 border-stone-300 text-emerald-600 focus:ring-emerald-500/20 cursor-pointer';
+
 export default function LineBreakRemoverDemo() {
   const [input, setInput] = useState('');
   const [mode, setMode] = useState<LineBreakMode>('replace-with-space');
@@ -37,16 +40,19 @@ export default function LineBreakRemoverDemo() {
     <div className="space-y-4">
       <div className="flex flex-wrap gap-4">
         {MODES.map((m) => (
-          <label key={m.value} className="flex items-start gap-2 text-sm cursor-pointer">
+          <label
+            key={m.value}
+            className="flex items-start gap-2 text-sm cursor-pointer"
+          >
             <input
               type="radio"
               name="mode"
               checked={mode === m.value}
               onChange={() => setMode(m.value)}
-              className="mt-0.5 border-stone-300 text-emerald-600 focus:ring-emerald-500/20"
+              className={radioClasses}
             />
             <div>
-              <div className="font-medium text-stone-800">{m.label}</div>
+              <div className="font-semibold text-stone-800">{m.label}</div>
               <div className="text-xs text-stone-500">{m.desc}</div>
             </div>
           </label>

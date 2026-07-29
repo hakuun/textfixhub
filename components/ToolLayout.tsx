@@ -30,7 +30,7 @@ export default function ToolLayout({ children, pageName }: ToolLayoutProps) {
     : undefined;
   return (
     <>
-      <div className="border-b border-stone-100 bg-stone-50/50 px-4 py-3">
+      <div className="border-b border-stone-200/60 bg-stone-50/70 px-4 py-3">
         <div className="mx-auto max-w-5xl">
           <Link
             href="/"

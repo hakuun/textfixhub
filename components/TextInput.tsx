@@ -56,13 +56,20 @@ export default function TextInput({
   return (
     <div>
       {label && (
-        <label htmlFor={id} className="mb-2 block text-xs font-medium uppercase tracking-wider text-stone-500">
+        <label
+          htmlFor={id}
+          className="mb-2 block text-xs font-semibold uppercase tracking-wider text-stone-500"
+        >
           {label}
         </label>
       )}
       <textarea
         id={id}
-        className="w-full rounded-xl border border-stone-200 bg-white px-4 py-3 font-mono text-sm leading-relaxed text-stone-900 shadow-sm transition-[border-color,box-shadow] duration-150 ease-out placeholder:text-stone-400 hover:border-stone-300 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+        className="w-full rounded-xl border border-stone-200 bg-white px-4 py-3 font-mono text-sm leading-relaxed text-stone-900 transition-all duration-200 ease-out placeholder:text-stone-400 hover:border-stone-300 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/15"
+        style={{
+          boxShadow:
+            '0 0 0 1px oklch(0 0 0 / 0.03), 0 1px 2px 0 oklch(0 0 0 / 0.04)',
+        }}
         rows={rows}
         placeholder={placeholder}
         value={localValue}

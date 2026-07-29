@@ -45,22 +45,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen bg-white text-stone-900 antialiased font-sans">
+      <body className="min-h-screen bg-stone-50 text-stone-900 antialiased font-sans">
         <div className="flex min-h-screen flex-col">
           {/* Header */}
-          <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-white/90 backdrop-blur-sm">
+          <header className="sticky top-0 z-50 border-b border-stone-200/60 glass-surface">
             <div className="mx-auto flex max-w-5xl items-center justify-between px-4 h-14">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2.5 text-base font-semibold tracking-tight text-stone-900 hover:text-emerald-600 transition-colors"
+                className="inline-flex items-center gap-2.5 text-base font-semibold tracking-tight text-stone-900 hover:text-emerald-600 transition-colors group"
               >
                 <img
                   src="/favicon.svg"
                   alt=""
-                  className="h-7 w-7 rounded-md"
+                  className="h-7 w-7"
                   aria-hidden="true"
                 />
-                TextFixHub
+                <span className="group-hover:text-emerald-600 transition-colors">
+                  TextFixHub
+                </span>
               </Link>
               <nav className="flex items-center gap-6 text-sm">
                 <Link
@@ -77,9 +79,9 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
 
           {/* Footer */}
-          <footer className="border-t border-stone-100">
+          <footer className="border-t border-stone-200/80 bg-white">
             <div className="mx-auto max-w-5xl px-4 py-8">
-              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
                 <p className="text-sm text-stone-500">
                   &copy; {new Date().getFullYear()} TextFixHub. All tools run locally in your browser.
                 </p>

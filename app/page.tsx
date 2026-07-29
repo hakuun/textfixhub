@@ -16,22 +16,26 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16">
+    <div className="mx-auto max-w-5xl px-4 py-16 animate-enter">
+      {/* Hero */}
       <h1 className="text-4xl font-bold tracking-tight text-stone-900">
-        Free Online Text Tools
+        Free Online{' '}
+        <span className="text-emerald-600">Text Tools</span>
       </h1>
       <p className="mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
         Simple, fast text utilities that work right in your browser. No
         sign-up required — just open a tool and start working.
       </p>
 
+      {/* Tool grid — auto-fit with centered last row */}
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ALL_TOOLS.map((tool) => (
           <ToolCard key={tool.slug} tool={tool} />
         ))}
       </div>
 
-      <section className="mt-16 border-t border-stone-100 pt-12">
+      {/* Why section */}
+      <section className="mt-16 border-t border-stone-200/80 pt-12">
         <h2 className="text-2xl font-bold tracking-tight text-stone-900">
           Why Use TextFixHub?
         </h2>

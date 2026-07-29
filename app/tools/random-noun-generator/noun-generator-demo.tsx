@@ -51,7 +51,7 @@ export default function NounGeneratorDemo() {
         />
         <button
           onClick={handleGenerate}
-          className="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-medium text-white transition-[background-color,scale] duration-150 ease-out hover:bg-emerald-700 active:scale-[0.96]"
+          className="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-200 ease-out hover:bg-emerald-700 active:scale-[0.96]"
         >
           Generate
         </button>
@@ -75,7 +75,7 @@ export default function NounGeneratorDemo() {
               key={`${noun}-${i}`}
               onClick={() => handleSaveNoun(noun)}
               disabled={saved.includes(noun)}
-              className={`rounded-full px-3 py-1 text-sm transition-[background-color,color,scale] duration-150 ease-out active:scale-[0.96] ${
+              className={`rounded-full px-3 py-1 text-sm font-medium transition-all duration-200 ease-out active:scale-[0.96] ${
                 saved.includes(noun)
                   ? 'bg-emerald-100 text-emerald-600 cursor-default'
                   : 'bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-600'
@@ -89,7 +89,7 @@ export default function NounGeneratorDemo() {
 
       {/* Saved nouns */}
       {saved.length > 0 && (
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-4">
+        <div className="card-surface rounded-xl border-emerald-200 bg-emerald-50/60 p-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-emerald-800">
               Your Saved Nouns ({saved.length})
@@ -97,13 +97,13 @@ export default function NounGeneratorDemo() {
             <div className="flex gap-2">
               <button
                 onClick={handleDownload}
-                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-[background-color,scale] duration-150 ease-out hover:bg-emerald-100 active:scale-[0.96]"
+                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-all duration-200 ease-out hover:bg-emerald-100 active:scale-[0.96]"
               >
                 Download (.txt)
               </button>
               <button
                 onClick={() => setSaved([])}
-                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-[background-color,scale] duration-150 ease-out hover:bg-emerald-100 active:scale-[0.96]"
+                className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-700 transition-all duration-200 ease-out hover:bg-emerald-100 active:scale-[0.96]"
               >
                 Clear All
               </button>
@@ -114,7 +114,7 @@ export default function NounGeneratorDemo() {
               <button
                 key={noun}
                 onClick={() => handleRemoveSaved(noun)}
-                className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs text-emerald-800 transition-[background-color,color,scale] duration-150 ease-out hover:bg-red-100 hover:text-red-700 hover:line-through active:scale-[0.96]"
+                className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 transition-all duration-200 ease-out hover:bg-red-100 hover:text-red-700 hover:line-through active:scale-[0.96]"
                 title="Click to remove"
               >
                 {noun} &times;
