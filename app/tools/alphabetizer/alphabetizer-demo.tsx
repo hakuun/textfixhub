@@ -152,7 +152,7 @@ export default function AlphabetizerDemo() {
         <OutputPanel
           label="Sorted List"
           text={output}
-          emptyMessage="Paste your list above to get started"
+          emptyMessage="Paste your list in the input box to get started"
         />
       </div>
     </div>

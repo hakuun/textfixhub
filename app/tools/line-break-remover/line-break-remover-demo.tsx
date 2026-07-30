@@ -70,7 +70,7 @@ export default function LineBreakRemoverDemo() {
         <OutputPanel
           label="Cleaned Text"
           text={output}
-          emptyMessage="Paste text above to remove line breaks"
+          emptyMessage="Paste text in the input box to remove line breaks"
         />
       </div>
     </div>
