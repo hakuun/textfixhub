@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.textfixhub.com'),
   title: {
     default: 'TextFixHub — Free Online Text Tools',
     template: '%s | TextFixHub',
