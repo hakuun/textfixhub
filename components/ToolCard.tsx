@@ -9,6 +9,7 @@ import {
   Tag,
   TextB,
   MagicWand,
+  Hash,
 } from '@phosphor-icons/react/dist/ssr';
 
 const TOOL_ICONS: Record<string, PhosphorIcon> = {
@@ -19,6 +20,7 @@ const TOOL_ICONS: Record<string, PhosphorIcon> = {
   'random-noun-generator': Tag,
   'linkedin-text-formatter': TextB,
   'fake-word-generator': MagicWand,
+  'syllable-counter': Hash,
 };
 
 interface ToolCardProps {

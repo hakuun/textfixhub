@@ -121,17 +121,26 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 2900,
     kd: 6,
   },
+  {
+    slug: 'syllable-counter',
+    name: 'Syllable Counter',
+    description: 'Count syllables in poems and any text with per-line and per-word counts. Powered by a 20,000-word dictionary — built for haiku.',
+    keyword: 'syllable counter',
+    searchVolume: 18100,
+    kd: 30,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
 export const RELATED_TOOLS: Record<string, string[]> = {
   alphabetizer: ['line-break-remover', 'random-noun-generator', 'linkedin-text-formatter'],
   'line-break-remover': ['alphabetizer', 'sentence-counter'],
-  'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter'],
+  'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter', 'syllable-counter'],
   'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator'],
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer'],
   'fake-word-generator': ['random-noun-generator', 'random-sentence-generator'],
+  'syllable-counter': ['sentence-counter', 'line-break-remover'],
 };
 
 /** Look up a tool by slug */
