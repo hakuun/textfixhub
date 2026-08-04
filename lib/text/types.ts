@@ -145,6 +145,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 3600,
     kd: 13,
   },
+  {
+    slug: 'mirror-text',
+    name: 'Mirror Text Generator',
+    description: 'Reverse, flip, and mirror text in three modes on one page — perfect for T-shirt prints, puzzles, social media and pranks.',
+    keyword: 'mirror text',
+    searchVolume: 28000,
+    kd: 55,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -154,11 +162,12 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter', 'syllable-counter'],
   'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator'],
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
-  'linkedin-text-formatter': ['sentence-counter', 'alphabetizer'],
   'syllable-counter': ['sentence-counter', 'line-break-remover'],
   'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
   'word-combiner': ['fake-word-generator', 'random-noun-generator'],
   'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner'],
+  'mirror-text': ['linkedin-text-formatter', 'word-combiner'],
+  'linkedin-text-formatter': ['sentence-counter', 'alphabetizer', 'mirror-text'],
 };
 
 /** Look up a tool by slug */
