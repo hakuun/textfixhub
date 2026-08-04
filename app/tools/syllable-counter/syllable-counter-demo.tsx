@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import { countTextSyllables } from '@/lib/text/syllable-counter';
+import { useState, useMemo, useEffect } from 'react';
+import type { TextSyllableStats } from '@/lib/text/syllable-counter';
 import TextInput from '@/components/TextInput';
 
 function StatTile({
@@ -29,8 +29,31 @@ function StatTile({
 
 export default function SyllableCounterDemo() {
   const [input, setInput] = useState('');
+  // The 20K-word dictionary is ~80KB gzipped. We lazy-load it on first real
+  // input so it never blocks the page's initial render (FCP).
+  const [counter, setCounter] = useState<
+    null | ((t: string) => TextSyllableStats)
+  >(null);
 
-  const stats = useMemo(() => countTextSyllables(input), [input]);
+  useEffect(() => {
+    if (counter) return; // dictionary already loaded
+    if (!input.trim()) return; // wait until the user actually types
+    let cancelled = false;
+    import('@/lib/text/syllable-counter')
+      .then((mod) => {
+        if (!cancelled) setCounter(() => mod.countTextSyllables);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [input, counter]);
+
+  const stats = useMemo(
+    () => (counter ? counter(input) : null),
+    [input, counter],
+  );
+
   const hasText = input.trim().length > 0;
 
   return (
@@ -43,12 +66,16 @@ export default function SyllableCounterDemo() {
       />
 
       <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
-        <StatTile label="Total Syllables" value={stats.total} highlight />
-        <StatTile label="Words" value={stats.wordCount} />
-        <StatTile label="Lines" value={stats.lines.length} />
+        <StatTile
+          label="Total Syllables"
+          value={stats ? stats.total : '—'}
+          highlight
+        />
+        <StatTile label="Words" value={stats ? stats.wordCount : '—'} />
+        <StatTile label="Lines" value={stats ? stats.lines.length : '—'} />
       </div>
 
-      {hasText && (
+      {hasText && stats && (
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-stone-700">
             Syllables Per Line
@@ -60,7 +87,9 @@ export default function SyllableCounterDemo() {
                 className="flex items-center justify-between gap-3 rounded-lg border border-stone-200 bg-white px-4 py-2.5"
               >
                 <span className="whitespace-pre-wrap break-words font-mono text-sm text-stone-700">
-                  {line.text || <span className="text-stone-400">(blank line)</span>}
+                  {line.text || (
+                    <span className="text-stone-400">(blank line)</span>
+                  )}
                 </span>
                 <span
                   className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold tabular-nums ${
