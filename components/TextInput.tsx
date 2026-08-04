@@ -28,13 +28,14 @@ export default function TextInput({
   const isTypingRef = useRef(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  // Auto-grow the textarea with its content (capped at 65% of the viewport).
+  // Auto-grow the textarea with its content (capped at 40% of the viewport so
+  // the output below stays visible on desktop).
   useEffect(() => {
     if (!autoResize) return;
     const el = textareaRef.current;
     if (!el) return;
     el.style.height = 'auto';
-    const maxHeight = Math.round(window.innerHeight * 0.65);
+    const maxHeight = Math.round(window.innerHeight * 0.4);
     el.style.height = `${Math.min(el.scrollHeight, maxHeight)}px`;
   }, [autoResize, localValue, value]);
 
@@ -84,7 +85,7 @@ export default function TextInput({
         style={{
           boxShadow:
             '0 0 0 1px oklch(0 0 0 / 0.03), 0 1px 2px 0 oklch(0 0 0 / 0.04)',
-          ...(autoResize ? { maxHeight: '65vh', overflowY: 'auto' } : {}),
+          ...(autoResize ? { maxHeight: '40vh', overflowY: 'auto' } : {}),
         }}
         rows={rows}
         placeholder={placeholder}
