@@ -57,9 +57,8 @@ export default function RootLayout({
               >
                 <img
                   src="/favicon.svg"
-                  alt=""
+                  alt="TextFixHub logo"
                   className="h-7 w-7"
-                  aria-hidden="true"
                 />
                 <span className="group-hover:text-emerald-600 transition-colors">
                   TextFixHub

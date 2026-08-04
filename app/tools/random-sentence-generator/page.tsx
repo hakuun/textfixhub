@@ -9,8 +9,7 @@ import SentenceGeneratorDemo from './sentence-generator-demo';
 import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
 export const metadata: Metadata = {
-  title:
-    'Random Sentence Generator - Free Online Sentence Generator',
+  title: 'Random Sentence Generator - Writing Prompts',
   description:
     'Generate random sentences for writing prompts, brainstorming, and creative exercises. 500 hand-written sentences — no AI slop, no grammar errors. Free, no sign-up.',
   alternates: {

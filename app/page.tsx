@@ -5,8 +5,7 @@ import ToolCard from '@/components/ToolCard';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title:
-    'Free Online Text Tools - Alphabetize, Count Sentences, Generate Random Text | TextFixHub',
+  title: 'Free Text Tools: Alphabetize, Count & More | TextFixHub',
   description:
     'Free online text tools: alphabetize lists, remove line breaks, count sentences, generate random sentences and nouns. No sign-up required. All processing happens locally in your browser — your data never leaves your computer.',
   alternates: {

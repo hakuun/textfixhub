@@ -8,7 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import SyllableCounterDemo from './syllable-counter-demo';
 
 export const metadata: Metadata = {
-  title: 'Syllable Counter - Count Syllables in Poems & Text',
+  title: 'Syllable Counter - Count Syllables in Text',
   description:
     'Count syllables in poems, haiku, and any text — with per-line and per-word counts. Powered by a 20,000-word dictionary with human-reviewed corrections. Free, no sign-up, no text limit.',
   alternates: {

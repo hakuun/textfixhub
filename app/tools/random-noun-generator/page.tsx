@@ -9,7 +9,7 @@ import NounGeneratorDemo from './noun-generator-demo';
 import { DEFAULT_COUNT, SSG_SEED } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Random Noun Generator - Free Online Noun Generator',
+  title: 'Random Noun Generator - For Games & Ideas',
   description:
     'Generate random English nouns instantly — perfect for classroom activities, word games, brainstorming, and creative writing. Choose your count. Free, no sign-up.',
   alternates: {

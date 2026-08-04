@@ -9,7 +9,7 @@ import SentenceCounterDemo from './sentence-counter-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Sentence Counter - Free Online Text Statistics Tool',
+  title: 'Sentence Counter - Count Words & Sentences',
   description:
     'Count sentences, words, characters, paragraphs, and more. Get reading time, speaking time, and detailed text statistics. Smart abbreviation handling. Free, no sign-up.',
   alternates: {

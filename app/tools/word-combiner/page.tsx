@@ -8,7 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import WordCombinerDemo from './word-combiner-demo';
 
 export const metadata: Metadata = {
-  title: 'Word Combiner - Blend Two Words into New Portmanteaus',
+  title: 'Word Combiner - Make New Portmanteau Words',
   description:
     'Combine two words into new portmanteau-style words with syllable-aware blending. Perfect for brand names, couples, and creative writing. Free, no sign-up, runs in your browser.',
   alternates: {

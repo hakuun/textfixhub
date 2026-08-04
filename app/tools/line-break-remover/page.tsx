@@ -9,7 +9,7 @@ import LineBreakRemoverDemo from './line-break-remover-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Line Break Remover - Free Online Remove Line Breaks Tool',
+  title: 'Line Break Remover - Clean Up Pasted Text',
   description:
     'Remove broken line breaks from pasted text instantly — clean up PDF, email, and chat copy-paste. Three modes: replace with space, remove with space, remove entirely. Free, no sign-up.',
   alternates: {

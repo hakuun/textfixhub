@@ -8,7 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import FakeWordGeneratorDemo from './fake-word-generator-demo';
 
 export const metadata: Metadata = {
-  title: 'Fake Word Generator - Invent Words for Games & Writing',
+  title: 'Fake Word Generator - Invent New Words',
   description:
     'Generate invented words that sound real. Markov-powered with English, fantasy and sci-fi styles — perfect for D&D names, fiction, and branding. Free, no sign-up, runs in your browser.',
   alternates: {

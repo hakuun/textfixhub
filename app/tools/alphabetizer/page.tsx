@@ -10,7 +10,7 @@ import AlphabetizerDemo from './alphabetizer-demo';
 import { SAMPLE_INPUT } from './sample-data';
 
 export const metadata: Metadata = {
-  title: 'Alphabetizer - Free Online Alphabetize List Tool',
+  title: 'Alphabetizer - Sort & Alphabetize Lists',
   description:
     'Alphabetize any list instantly — sort A to Z, remove duplicates, reverse order, custom separators, and HTML removal. Free online tool, no sign-up required.',
   alternates: {

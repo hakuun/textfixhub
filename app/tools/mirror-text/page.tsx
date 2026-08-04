@@ -8,7 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import MirrorTextDemo from './mirror-text-demo';
 
 export const metadata: Metadata = {
-  title: 'Mirror Text Generator - Reverse, Flip & Upside Down Text',
+  title: 'Mirror Text Generator - Reverse & Flip Text',
   description:
     'Reverse, flip, and mirror text in three modes on one page. Perfect for T-shirt prints, puzzles, social media, and pranks. Free, no sign-up, runs in your browser.',
   alternates: {

@@ -8,7 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import LinkedinFormatterDemo from './linkedin-formatter-demo';
 
 export const metadata: Metadata = {
-  title: 'LinkedIn Text Formatter - Bold, Italic & Strikethrough Text',
+  title: 'LinkedIn Text Formatter - Bold Italic Text',
   description:
     'Format text for LinkedIn with bold, italic, strikethrough, underline and more. 14 Unicode text styles plus bullet, numbered and checklist lists. Free, no sign-up, 100% private.',
   alternates: {

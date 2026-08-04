@@ -11,7 +11,7 @@ import JsonLd from '@/components/JsonLd';
 import NflTeamGeneratorDemo from './nfl-team-generator-demo';
 
 export const metadata: Metadata = {
-  title: 'Random NFL Team Generator - Pick Teams for Fantasy & Pools',
+  title: 'Random NFL Team Generator - Fantasy & Pools',
   description:
     'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
   alternates: {
