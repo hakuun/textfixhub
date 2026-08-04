@@ -129,6 +129,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 18100,
     kd: 30,
   },
+  {
+    slug: 'random-nfl-team-generator',
+    name: 'Random NFL Team Generator',
+    description: 'Pick random NFL teams with one click — filter by AFC/NFC or division, no duplicates, team colors included. Perfect for fantasy and pools.',
+    keyword: 'random nfl team generator',
+    searchVolume: 8100,
+    kd: 26,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -141,6 +149,7 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer'],
   'fake-word-generator': ['random-noun-generator', 'random-sentence-generator'],
   'syllable-counter': ['sentence-counter', 'line-break-remover'],
+  'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
 };
 
 /** Look up a tool by slug */
