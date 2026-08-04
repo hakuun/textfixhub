@@ -153,6 +153,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 28000,
     kd: 55,
   },
+  {
+    slug: 'small-text-generator',
+    name: 'Small Text Generator',
+    description: 'Make tiny letters with small caps, superscript and subscript — perfect for social bios, math and chemistry. Free, no sign-up.',
+    keyword: 'small text generator',
+    searchVolume: 27100,
+    kd: 29,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -166,8 +174,9 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
   'word-combiner': ['fake-word-generator', 'random-noun-generator'],
   'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner'],
-  'mirror-text': ['linkedin-text-formatter', 'word-combiner'],
-  'linkedin-text-formatter': ['sentence-counter', 'alphabetizer', 'mirror-text'],
+  'mirror-text': ['linkedin-text-formatter', 'word-combiner', 'small-text-generator'],
+  'linkedin-text-formatter': ['sentence-counter', 'alphabetizer', 'mirror-text', 'small-text-generator'],
+  'small-text-generator': ['linkedin-text-formatter', 'mirror-text', 'word-combiner'],
 };
 
 /** Look up a tool by slug */

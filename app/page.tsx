@@ -143,14 +143,14 @@ export default function Home() {
             >
               mirror or flip it
             </Link>
-            , or{' '}
+            , or shrink it with the{' '}
             <Link
-              href="/tools/random-nfl-team-generator"
+              href="/tools/small-text-generator"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
-              pick a random NFL team
+              small text generator
             </Link>
-            .
+            {' '}for tiny letters and math symbols.
           </p>
           <p>
             These free tools are here to save you time and needless

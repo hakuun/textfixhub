@@ -13,6 +13,7 @@ import {
   Trophy,
   ArrowsMerge,
   FlipHorizontal,
+  TextT,
 } from '@phosphor-icons/react/dist/ssr';
 
 const TOOL_ICONS: Record<string, PhosphorIcon> = {
@@ -27,6 +28,7 @@ const TOOL_ICONS: Record<string, PhosphorIcon> = {
   'random-nfl-team-generator': Trophy,
   'word-combiner': ArrowsMerge,
   'mirror-text': FlipHorizontal,
+  'small-text-generator': TextT,
 };
 
 interface ToolCardProps {
