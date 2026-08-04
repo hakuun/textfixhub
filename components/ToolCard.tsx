@@ -8,6 +8,7 @@ import {
   Quotes,
   Tag,
   TextB,
+  MagicWand,
 } from '@phosphor-icons/react/dist/ssr';
 
 const TOOL_ICONS: Record<string, PhosphorIcon> = {
@@ -17,6 +18,7 @@ const TOOL_ICONS: Record<string, PhosphorIcon> = {
   'random-sentence-generator': Quotes,
   'random-noun-generator': Tag,
   'linkedin-text-formatter': TextB,
+  'fake-word-generator': MagicWand,
 };
 
 interface ToolCardProps {

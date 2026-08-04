@@ -113,6 +113,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 5400,
     kd: 29,
   },
+  {
+    slug: 'fake-word-generator',
+    name: 'Fake Word Generator',
+    description: 'Generate invented words that sound real — Markov-powered with English, fantasy and sci-fi styles. Perfect for games, fiction and naming.',
+    keyword: 'fake word generator',
+    searchVolume: 2900,
+    kd: 6,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -120,9 +128,10 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   alphabetizer: ['line-break-remover', 'random-noun-generator', 'linkedin-text-formatter'],
   'line-break-remover': ['alphabetizer', 'sentence-counter'],
   'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter'],
-  'random-sentence-generator': ['random-noun-generator', 'sentence-counter'],
-  'random-noun-generator': ['random-sentence-generator', 'alphabetizer'],
+  'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator'],
+  'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer'],
+  'fake-word-generator': ['random-noun-generator', 'random-sentence-generator'],
 };
 
 /** Look up a tool by slug */
