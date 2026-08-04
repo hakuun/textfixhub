@@ -28,6 +28,7 @@ function mapAlpha(
   upperStart: number,
   lowerStart: number,
   digitStart?: number,
+  lowerH?: number,
 ): string {
   let out = '';
   for (const ch of text) {
@@ -35,7 +36,12 @@ function mapAlpha(
     if (code >= 65 && code <= 90) {
       out += String.fromCodePoint(upperStart + (code - 65));
     } else if (code >= 97 && code <= 122) {
-      out += String.fromCodePoint(lowerStart + (code - 97));
+      const idx = code - 97;
+      // Mathematical Italic reserves U+1D455; lowercase h lives at U+210E.
+      // (e.g. italic a–g = U+1D44E–U+1D454, h = U+210E, i–z = U+1D456–U+1D467)
+      out += String.fromCodePoint(
+        lowerH !== undefined && idx === 7 ? lowerH : lowerStart + idx,
+      );
     } else if (digitStart !== undefined && code >= 48 && code <= 57) {
       out += String.fromCodePoint(digitStart + (code - 48));
     } else {
@@ -78,7 +84,7 @@ export const LINKEDIN_STYLES: LinkedinStyleDef[] = [
   {
     id: 'italic',
     label: 'Italic',
-    transform: (t) => mapAlpha(t, 0x1d434, 0x1d44e),
+    transform: (t) => mapAlpha(t, 0x1d434, 0x1d44e, undefined, 0x210e),
   },
   {
     id: 'italic-sans',

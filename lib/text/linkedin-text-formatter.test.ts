@@ -52,6 +52,12 @@ describe('other character blocks', () => {
     expect(s.transform('A1')).toBe('\u{1D434}1');
   });
 
+  it('italic maps lowercase h to PLANCK CONSTANT (U+210E), not the reserved U+1D455', () => {
+    const s = LINKEDIN_STYLES.find((x) => x.id === 'italic')!;
+    expect(s.transform('h')).toBe('ℎ');
+    expect(s.transform('hi')).toBe('ℎ\u{1D456}');
+  });
+
   it('bold-italic maps letters', () => {
     const s = LINKEDIN_STYLES.find((x) => x.id === 'bold-italic')!;
     expect(s.transform('Ab')).toBe('\u{1D468}\u{1D483}');
