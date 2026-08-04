@@ -75,35 +75,83 @@ export default function Home() {
             >
               alphabetize a list
             </Link>
-            ? Clean up{' '}
+            {' '}or clean up{' '}
             <Link
               href="/tools/line-break-remover"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               messy line breaks
             </Link>
-            ? Get detailed{' '}
+            ? Check your{' '}
             <Link
               href="/tools/sentence-counter"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
-              text statistics like word count and reading time
+              sentence count
             </Link>
-            ? Generate{' '}
+            , or count{' '}
+            <Link
+              href="/tools/syllable-counter"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              syllables in a poem
+            </Link>
+            {' '}line by line for a haiku? We&apos;ve got you covered.
+          </p>
+          <p>
+            Need naming ideas or writing fuel? Generate{' '}
+            <Link
+              href="/tools/random-noun-generator"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              random nouns
+            </Link>
+            ,{' '}
+            <Link
+              href="/tools/fake-word-generator"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              invented fantasy words
+            </Link>
+            , or{' '}
             <Link
               href="/tools/random-sentence-generator"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               creative writing prompts
-            </Link>{' '}
-            or{' '}
+            </Link>
+            . Blend two words into a{' '}
             <Link
-              href="/tools/random-noun-generator"
+              href="/tools/word-combiner"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
-              random nouns for brainstorming
+              portmanteau
             </Link>
-            ? We&apos;ve got you covered.
+            {' '}for a brand or couple name.
+          </p>
+          <p>
+            Want your text to stand out?{' '}
+            <Link
+              href="/tools/linkedin-text-formatter"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              Format it for LinkedIn
+            </Link>
+            ,{' '}
+            <Link
+              href="/tools/mirror-text"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              mirror or flip it
+            </Link>
+            , or{' '}
+            <Link
+              href="/tools/random-nfl-team-generator"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              pick a random NFL team
+            </Link>
+            .
           </p>
           <p>
             These free tools are here to save you time and needless
