@@ -105,15 +105,24 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 4400,
     kd: 16,
   },
+  {
+    slug: 'linkedin-text-formatter',
+    name: 'LinkedIn Text Formatter',
+    description: 'Format text for LinkedIn with bold, italic, strikethrough and more — 14 Unicode styles plus bullet and checklist lists. Free, no sign-up.',
+    keyword: 'linkedin text formatter',
+    searchVolume: 5400,
+    kd: 29,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
 export const RELATED_TOOLS: Record<string, string[]> = {
-  alphabetizer: ['line-break-remover', 'random-noun-generator'],
+  alphabetizer: ['line-break-remover', 'random-noun-generator', 'linkedin-text-formatter'],
   'line-break-remover': ['alphabetizer', 'sentence-counter'],
-  'sentence-counter': ['line-break-remover', 'random-sentence-generator'],
+  'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter'],
   'random-sentence-generator': ['random-noun-generator', 'sentence-counter'],
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer'],
+  'linkedin-text-formatter': ['sentence-counter', 'alphabetizer'],
 };
 
 /** Look up a tool by slug */

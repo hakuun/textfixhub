@@ -7,6 +7,7 @@ import {
   Article,
   Quotes,
   Tag,
+  TextB,
 } from '@phosphor-icons/react/dist/ssr';
 
 const TOOL_ICONS: Record<string, PhosphorIcon> = {
@@ -15,6 +16,7 @@ const TOOL_ICONS: Record<string, PhosphorIcon> = {
   'sentence-counter': Article,
   'random-sentence-generator': Quotes,
   'random-noun-generator': Tag,
+  'linkedin-text-formatter': TextB,
 };
 
 interface ToolCardProps {
