@@ -14,6 +14,7 @@ import {
   ArrowsMerge,
   FlipHorizontal,
   TextT,
+  Heart,
 } from '@phosphor-icons/react/dist/ssr';
 
 const TOOL_ICONS: Record<string, PhosphorIcon> = {
@@ -29,6 +30,7 @@ const TOOL_ICONS: Record<string, PhosphorIcon> = {
   'word-combiner': ArrowsMerge,
   'mirror-text': FlipHorizontal,
   'small-text-generator': TextT,
+  'wedding-hashtag-generator': Heart,
 };
 
 interface ToolCardProps {

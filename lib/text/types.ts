@@ -161,6 +161,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 27100,
     kd: 29,
   },
+  {
+    slug: 'wedding-hashtag-generator',
+    name: 'Wedding Hashtag Generator',
+    description: 'Generate wedding hashtags from your names — MrAndMrs, last-name mashups and classic phrases for Instagram. Free, no sign-up.',
+    keyword: 'wedding hashtag generator',
+    searchVolume: 5400,
+    kd: 16,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -172,11 +180,12 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
   'syllable-counter': ['sentence-counter', 'line-break-remover'],
   'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
-  'word-combiner': ['fake-word-generator', 'random-noun-generator'],
+  'word-combiner': ['fake-word-generator', 'random-noun-generator', 'wedding-hashtag-generator'],
   'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner'],
   'mirror-text': ['linkedin-text-formatter', 'word-combiner', 'small-text-generator'],
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer', 'mirror-text', 'small-text-generator'],
   'small-text-generator': ['linkedin-text-formatter', 'mirror-text', 'word-combiner'],
+  'wedding-hashtag-generator': ['word-combiner', 'fake-word-generator', 'random-noun-generator'],
 };
 
 /** Look up a tool by slug */

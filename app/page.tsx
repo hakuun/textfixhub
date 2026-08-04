@@ -126,7 +126,14 @@ export default function Home() {
             >
               portmanteau
             </Link>
-            {' '}for a brand or couple name.
+            {' '}for a brand or couple name, or generate a{' '}
+            <Link
+              href="/tools/wedding-hashtag-generator"
+              className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+            >
+              wedding hashtag
+            </Link>
+            {' '}for your big day.
           </p>
           <p>
             Want your text to stand out?{' '}
