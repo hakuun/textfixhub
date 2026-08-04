@@ -137,6 +137,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 8100,
     kd: 26,
   },
+  {
+    slug: 'word-combiner',
+    name: 'Word Combiner',
+    description: 'Blend two words into new portmanteaus with syllable-aware merging — perfect for brand names, couple names and creative writing.',
+    keyword: 'word combiner',
+    searchVolume: 3600,
+    kd: 13,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -147,9 +155,10 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator'],
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer'],
-  'fake-word-generator': ['random-noun-generator', 'random-sentence-generator'],
   'syllable-counter': ['sentence-counter', 'line-break-remover'],
   'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
+  'word-combiner': ['fake-word-generator', 'random-noun-generator'],
+  'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner'],
 };
 
 /** Look up a tool by slug */

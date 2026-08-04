@@ -11,6 +11,7 @@ import {
   MagicWand,
   Hash,
   Trophy,
+  ArrowsMerge,
 } from '@phosphor-icons/react/dist/ssr';
 
 const TOOL_ICONS: Record<string, PhosphorIcon> = {
@@ -23,6 +24,7 @@ const TOOL_ICONS: Record<string, PhosphorIcon> = {
   'fake-word-generator': MagicWand,
   'syllable-counter': Hash,
   'random-nfl-team-generator': Trophy,
+  'word-combiner': ArrowsMerge,
 };
 
 interface ToolCardProps {
