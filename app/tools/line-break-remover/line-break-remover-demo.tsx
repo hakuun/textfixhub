@@ -59,10 +59,11 @@ export default function LineBreakRemoverDemo() {
         ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="space-y-4">
         <TextInput
           label="Pasted Text"
           rows={12}
+          autoResize
           placeholder="Paste text with broken line breaks..."
           value={input}
           onChange={setInput}
