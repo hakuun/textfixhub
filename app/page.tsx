@@ -163,7 +163,7 @@ export default function Home() {
             These free tools are here to save you time and needless
             frustration. More tools are on the way. If you have a suggestion,{' '}
             <a
-              href="mailto:kuangxiu0702@gmail.com"
+              href="mailto:contact@textfixhub.com"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
               drop us a line

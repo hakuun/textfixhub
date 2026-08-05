@@ -102,10 +102,10 @@ export default function AboutPage() {
           <p className="mt-2">
             Email:{' '}
             <a
-              href="mailto:kuangxiu0702@gmail.com"
+              href="mailto:contact@textfixhub.com"
               className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
             >
-              kuangxiu0702@gmail.com
+              contact@textfixhub.com
             </a>
           </p>
         </section>
