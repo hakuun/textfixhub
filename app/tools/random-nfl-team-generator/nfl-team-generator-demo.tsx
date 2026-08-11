@@ -5,6 +5,7 @@ import { Check, Copy, Trash } from '@phosphor-icons/react/dist/ssr';
 import {
   pickRandomNflTeams,
   getNflTeamsForFilter,
+  getContrastForeground,
   teamFullName,
   type NflConference,
   type NflDivision,
@@ -85,21 +86,19 @@ function Segmented<T extends string>({
 }
 
 function TeamCard({ team }: { team: NflTeam }) {
+  const fg = getContrastForeground(team.color);
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3">
-      <span
-        aria-hidden="true"
-        className="h-4 w-4 shrink-0 rounded-full ring-2 ring-white shadow"
-        style={{ backgroundColor: team.color }}
-      />
-      <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-stone-900">
-          {teamFullName(team)}
-        </p>
-        <p className="text-xs text-stone-500">
-          {team.conference} {team.division}
-        </p>
-      </div>
+    <div
+      className="rounded-xl px-4 py-3 shadow-sm ring-1 ring-black/5"
+      style={{ backgroundColor: team.color, color: fg }}
+    >
+      <p className="truncate text-sm font-semibold">{teamFullName(team)}</p>
+      <p
+        className="text-xs opacity-80"
+        style={{ color: fg }}
+      >
+        {team.conference} {team.division}
+      </p>
     </div>
   );
 }

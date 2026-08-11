@@ -102,3 +102,25 @@ export function getNflTeamsForFilter(
       (division === 'all' || t.division === division),
   );
 }
+
+/**
+ * Pick a readable foreground color ('#FFFFFF' or '#0F172A') for text on top
+ * of a given background hex color. Uses the WCAG relative-luminance formula,
+ * so light team colors (e.g. Saints' gold, Steelers' yellow) get dark text
+ * instead of unreadable white-on-light.
+ */
+export function getContrastForeground(backgroundHex: string): string {
+  const hex = backgroundHex.replace('#', '');
+  const r = parseInt(hex.slice(0, 2), 16) / 255;
+  const g = parseInt(hex.slice(2, 4), 16) / 255;
+  const b = parseInt(hex.slice(4, 6), 16) / 255;
+
+  const linearize = (c: number) =>
+    c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+
+  const l =
+    0.2126 * linearize(r) + 0.7152 * linearize(g) + 0.0722 * linearize(b);
+
+  // Lighter than ~0.179 luminance → dark text reads better (WCAG 4.5:1)
+  return l > 0.179 ? '#0F172A' : '#FFFFFF';
+}

@@ -3,6 +3,7 @@ import {
   NFL_TEAMS,
   pickRandomNflTeams,
   getNflTeamsForFilter,
+  getContrastForeground,
   teamFullName,
 } from './nfl-teams';
 
@@ -100,5 +101,32 @@ describe('getNflTeamsForFilter', () => {
     expect(getNflTeamsForFilter('AFC', 'all')).toHaveLength(16);
     expect(getNflTeamsForFilter('all', 'West')).toHaveLength(8);
     expect(getNflTeamsForFilter('all', 'all')).toHaveLength(32);
+  });
+});
+
+describe('getContrastForeground', () => {
+  it('returns white text for dark backgrounds', () => {
+    expect(getContrastForeground('#002244')).toBe('#FFFFFF'); // Patriots navy
+    expect(getContrastForeground('#000000')).toBe('#FFFFFF'); // Raiders black
+    expect(getContrastForeground('#00338D')).toBe('#FFFFFF'); // Bills blue
+  });
+
+  it('returns dark text for light backgrounds', () => {
+    expect(getContrastForeground('#FFB612')).toBe('#0F172A'); // Steelers gold
+    expect(getContrastForeground('#D3BC8D')).toBe('#0F172A'); // Saints gold
+    expect(getContrastForeground('#FFFFFF')).toBe('#0F172A');
+  });
+
+  it('handles the classic red team colors', () => {
+    expect(getContrastForeground('#E31837')).toBe('#FFFFFF'); // Chiefs red
+    expect(getContrastForeground('#A71930')).toBe('#FFFFFF'); // Falcons red
+    expect(getContrastForeground('#D50A0A')).toBe('#FFFFFF'); // Buccaneers red
+  });
+
+  it('every team gets a readable foreground', () => {
+    for (const t of NFL_TEAMS) {
+      const fg = getContrastForeground(t.color);
+      expect(['#FFFFFF', '#0F172A']).toContain(fg);
+    }
   });
 });
