@@ -13,7 +13,7 @@ import NflTeamGeneratorDemo from './nfl-team-generator-demo';
 export const metadata: Metadata = {
   title: 'Random NFL Team Generator - Fantasy & Pools',
   description:
-    'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
+    'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Includes all 32 current 2026 teams. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
   alternates: {
     canonical: '/tools/random-nfl-team-generator',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title:
       'Random NFL Team Generator — Pick Teams for Fantasy & Pools | TextFixHub',
     description:
-      'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
+      'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Includes all 32 current 2026 teams. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
     siteName: 'TextFixHub',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title:
       'Random NFL Team Generator — Pick Teams for Fantasy & Pools | TextFixHub',
     description:
-      'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
+      'Pick random NFL teams with one click. Filter by AFC or NFC, or by division, and get no-duplicate picks with team colors. Includes all 32 current 2026 teams. Perfect for fantasy football, office pools, and Madden. Free, no sign-up.',
   },
 };
 
@@ -70,7 +70,17 @@ const NFL_FAQS = [
   {
     question: 'Does this tool store anything?',
     answer:
-      'No. Team selection happens locally in your browser. Nothing is uploaded, stored, or tracked — there’s no account and no data collection.',
+      'No. Team selection happens locally in your browser. Nothing is uploaded, stored, or tracked — there’s no account and no data collection. Your recent picks are kept in your browser for convenience, and you can clear them any time.',
+  },
+  {
+    question: 'Which NFL teams are included?',
+    answer:
+      'All 32 current NFL teams — every franchise playing in the 2026 season, split across the AFC and NFC and their eight divisions. We keep the list up to date, so relocated teams show their current city (for example, the Rams are listed as Los Angeles, not St. Louis).',
+  },
+  {
+    question: 'Can I pick more than one team at once?',
+    answer:
+      'Yes. Use the Teams control to pick 2, 5, or up to all 32 at once. Every pick is unique — no team appears twice in the same result, which is handy for assigning a full league or pool in a single click.',
   },
 ];
 
@@ -110,6 +120,12 @@ export default function RandomNflTeamGeneratorPage() {
             approximate brand colors instead. Every team card shows the full
             name plus its conference and division, so there’s no ambiguity.
           </p>
+          <p className="mt-3 text-stone-600">
+            The team list reflects the current 32-team NFL. Relocated
+            franchises use their current city (Los Angeles Rams, Las Vegas
+            Raiders, Los Angeles Chargers) and Washington is listed as the
+            Commanders — so random picks always match what fans see today.
+          </p>
         </section>
 
         <section className="mt-10">
@@ -134,6 +150,62 @@ export default function RandomNflTeamGeneratorPage() {
               NFL-themed game night.
             </li>
           </ul>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-stone-800">
+            2026 NFL Season Teams
+          </h2>
+          <p className="mt-2 text-stone-600">
+            This generator draws from the complete list of{' '}
+            <strong>32 NFL teams playing the 2026 season</strong> — current
+            through the 2025–26 relocation and rebrand news. Unlike some older
+            generators you may have used, every team here shows its current
+            city and division, so you&rsquo;ll never see a team under an
+            outdated name.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-stone-200 bg-white p-4">
+              <h3 className="text-sm font-semibold text-stone-800">AFC</h3>
+              <ul className="mt-2 space-y-1.5 text-sm text-stone-600">
+                <li>
+                  <strong>East:</strong> Bills, Dolphins, Patriots, Jets
+                </li>
+                <li>
+                  <strong>North:</strong> Ravens, Bengals, Browns, Steelers
+                </li>
+                <li>
+                  <strong>South:</strong> Texans, Colts, Jaguars, Titans
+                </li>
+                <li>
+                  <strong>West:</strong> Broncos, Chiefs, Raiders, Chargers
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-stone-200 bg-white p-4">
+              <h3 className="text-sm font-semibold text-stone-800">NFC</h3>
+              <ul className="mt-2 space-y-1.5 text-sm text-stone-600">
+                <li>
+                  <strong>East:</strong> Cowboys, Giants, Eagles, Commanders
+                </li>
+                <li>
+                  <strong>North:</strong> Bears, Lions, Packers, Vikings
+                </li>
+                <li>
+                  <strong>South:</strong> Falcons, Panthers, Saints, Buccaneers
+                </li>
+                <li>
+                  <strong>West:</strong> Cardinals, Rams, 49ers, Seahawks
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="mt-3 text-sm text-stone-500">
+            Relocated or renamed teams always appear under their current
+            identity — for example, the Rams (Los Angeles), Raiders (Las
+            Vegas), Chargers (Los Angeles), and Washington Commanders. The pool
+            updates automatically if any team moves or rebrands.
+          </p>
         </section>
 
         <section className="mt-8">
