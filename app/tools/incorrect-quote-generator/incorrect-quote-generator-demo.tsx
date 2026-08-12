@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import {
   Check,
   Copy,
@@ -69,17 +69,19 @@ function EditableLine({
       el.style.height = `${el.scrollHeight}px`;
     }
   }, []);
+  // Re-measure whenever the value changes externally (e.g. a new quote is
+  // generated), not just while typing.
+  useEffect(() => {
+    autoResize();
+  }, [value, autoResize]);
   return (
     <textarea
       ref={ref}
       value={value}
-      onChange={(e) => {
-        onChange(e.target.value);
-        autoResize();
-      }}
+      onChange={(e) => onChange(e.target.value)}
       onKeyDown={onKeyDown}
       rows={1}
-      className="w-full resize-none rounded-lg border border-transparent bg-transparent py-1 pl-1 text-sm leading-relaxed text-stone-700 outline-none transition-colors hover:border-stone-200 focus:border-emerald-300 focus:bg-white"
+      className="min-w-0 flex-1 resize-none rounded-lg border border-transparent bg-transparent py-1 pl-1 text-sm leading-relaxed text-stone-700 outline-none transition-colors hover:border-stone-200 focus:border-emerald-300 focus:bg-white"
     />
   );
 }
