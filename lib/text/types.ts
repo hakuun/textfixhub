@@ -169,6 +169,14 @@ export const ALL_TOOLS: ToolMeta[] = [
     searchVolume: 5400,
     kd: 16,
   },
+  {
+    slug: 'incorrect-quote-generator',
+    name: 'Incorrect Quote Generator',
+    description: 'Generate fake conversations your characters never had — funny, romantic or angsty, with your own character names. Free, no AI, no sign-up.',
+    keyword: 'incorrect quote generator',
+    searchVolume: 12100,
+    kd: 26,
+  },
 ];
 
 /** Cross-link mapping: which tools are "related" to which */
@@ -176,12 +184,13 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   alphabetizer: ['line-break-remover', 'random-noun-generator', 'linkedin-text-formatter'],
   'line-break-remover': ['alphabetizer', 'sentence-counter'],
   'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter', 'syllable-counter'],
-  'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator'],
+  'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator', 'incorrect-quote-generator'],
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
   'syllable-counter': ['sentence-counter', 'line-break-remover'],
   'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
-  'word-combiner': ['fake-word-generator', 'random-noun-generator', 'wedding-hashtag-generator'],
-  'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner'],
+  'word-combiner': ['fake-word-generator', 'random-noun-generator', 'wedding-hashtag-generator', 'incorrect-quote-generator'],
+  'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner', 'incorrect-quote-generator'],
+  'incorrect-quote-generator': ['fake-word-generator', 'random-sentence-generator', 'word-combiner'],
   'mirror-text': ['linkedin-text-formatter', 'word-combiner', 'small-text-generator'],
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer', 'mirror-text', 'small-text-generator'],
   'small-text-generator': ['linkedin-text-formatter', 'mirror-text', 'word-combiner'],
