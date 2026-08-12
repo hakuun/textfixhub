@@ -66,7 +66,9 @@ function EditableLine({
     const el = ref.current;
     if (el) {
       el.style.height = 'auto';
-      el.style.height = `${el.scrollHeight}px`;
+      // scrollHeight excludes the border; the textarea has a 1px top+bottom
+      // border and box-sizing is border-box, so add 2px to avoid clipping.
+      el.style.height = `${el.scrollHeight + 2}px`;
     }
   }, []);
   // Re-measure whenever the value changes externally (e.g. a new quote is
@@ -81,7 +83,7 @@ function EditableLine({
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={onKeyDown}
       rows={1}
-      className="min-w-0 flex-1 resize-none rounded-lg border border-transparent bg-transparent py-1 pl-1 text-sm leading-relaxed text-stone-700 outline-none transition-colors hover:border-stone-200 focus:border-emerald-300 focus:bg-white"
+      className="min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-transparent bg-transparent py-1 pl-1 text-sm leading-relaxed text-stone-700 outline-none transition-colors hover:border-stone-200 focus:border-emerald-300 focus:bg-white"
     />
   );
 }
