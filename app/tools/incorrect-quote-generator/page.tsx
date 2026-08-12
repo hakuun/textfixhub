@@ -7,14 +7,14 @@ import IncorrectQuoteGeneratorDemo from './incorrect-quote-generator-demo';
 export const metadata: Metadata = {
   title: 'Incorrect Quote Generator - Funny, Romantic & Angst',
   description:
-    'Make your own incorrect quotes in seconds — add your characters’ names, pick funny, romantic, or angst, and get a fake conversation they never actually had. Free, no AI, runs in your browser.',
+    'Make your own incorrect quotes in seconds — add your characters’ names, pick funny, romantic, or angst, then edit any line and copy for Discord or HTML. Free, no AI, runs in your browser.',
   alternates: {
     canonical: '/tools/incorrect-quote-generator',
   },
   openGraph: {
     title: 'Incorrect Quote Generator — Fake Conversations for Your Characters | TextFixHub',
     description:
-      'Make your own incorrect quotes — add your characters’ names, pick funny, romantic, or angst, and get a fake conversation they never actually had. Free, no AI.',
+      'Make your own incorrect quotes — add your characters’ names, pick funny, romantic, or angst, then edit any line and copy for Discord or HTML. Free, no AI.',
     siteName: 'TextFixHub',
     type: 'website',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Incorrect Quote Generator — Fake Conversations for Your Characters | TextFixHub',
     description:
-      'Make your own incorrect quotes — add your characters’ names, pick funny, romantic, or angst, and get a fake conversation they never actually had. Free, no AI.',
+      'Make your own incorrect quotes — add your characters’ names, pick funny, romantic, or angst, then edit any line and copy for Discord or HTML. Free, no AI.',
   },
 };
 
@@ -55,7 +55,7 @@ const INCORRECT_QUOTE_FAQS = [
   {
     question: 'How do I share an incorrect quote?',
     answer:
-      'Click Copy Quote and paste it anywhere — Tumblr, AO3 author’s notes, Discord, or a caption. The copied format is “Character: line” per line, so it reads like a script excerpt.',
+      'Three copy formats are available: plain text (“Character: line”), Discord (with bold character names, ready to paste into a server), and HTML (for blogs or site posts). You can also edit any line before copying, so the quote is exactly the joke you want.',
   },
 ];
 

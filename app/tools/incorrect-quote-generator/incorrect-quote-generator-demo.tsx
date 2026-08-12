@@ -1,7 +1,14 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { Check, Copy, Plus, Trash } from '@phosphor-icons/react/dist/ssr';
+import { useState, useCallback, useRef } from 'react';
+import {
+  Check,
+  Copy,
+  DiscordLogo,
+  FileHtml,
+  Plus,
+  Trash,
+} from '@phosphor-icons/react/dist/ssr';
 import {
   generateIncorrectQuote,
   getMoodLabel,
@@ -13,6 +20,8 @@ import {
 const DEFAULT_NAMES = ['Alex', 'Sam', 'Jordan'];
 const MAX_NAMES = 6;
 const MIN_NAMES = 2;
+
+type CopyFormat = 'text' | 'discord' | 'html';
 
 function Segmented<T extends string>({
   options,
@@ -42,11 +51,46 @@ function Segmented<T extends string>({
   );
 }
 
+/** Render an auto-growing textarea for an editable quote line. */
+function EditableLine({
+  value,
+  onChange,
+  onKeyDown,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  onKeyDown: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+}) {
+  const ref = useRef<HTMLTextAreaElement>(null);
+  const autoResize = useCallback(() => {
+    const el = ref.current;
+    if (el) {
+      el.style.height = 'auto';
+      el.style.height = `${el.scrollHeight}px`;
+    }
+  }, []);
+  return (
+    <textarea
+      ref={ref}
+      value={value}
+      onChange={(e) => {
+        onChange(e.target.value);
+        autoResize();
+      }}
+      onKeyDown={onKeyDown}
+      rows={1}
+      className="w-full resize-none rounded-lg border border-transparent bg-transparent py-1 pl-1 text-sm leading-relaxed text-stone-700 outline-none transition-colors hover:border-stone-200 focus:border-emerald-300 focus:bg-white"
+    />
+  );
+}
+
 export default function IncorrectQuoteGeneratorDemo() {
   const [names, setNames] = useState<string[]>(DEFAULT_NAMES);
   const [mood, setMood] = useState<QuoteMood | 'any'>('any');
   const [quote, setQuote] = useState<IncorrectQuote | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [scene, setScene] = useState<string | undefined>(undefined);
+  const [lines, setLines] = useState<{ speaker: string; text: string }[]>([]);
+  const [copiedFormat, setCopiedFormat] = useState<CopyFormat | null>(null);
 
   const updateName = useCallback((index: number, value: string) => {
     setNames((prev) => {
@@ -67,21 +111,58 @@ export default function IncorrectQuoteGeneratorDemo() {
   }, []);
 
   const handleGenerate = useCallback(() => {
-    setQuote(generateIncorrectQuote({ names, mood }));
-    setCopied(false);
+    const q = generateIncorrectQuote({ names, mood });
+    setQuote(q);
+    setScene(q.scene);
+    setLines(q.lines.map((l) => ({ speaker: l.speaker, text: l.text })));
+    setCopiedFormat(null);
   }, [names, mood]);
 
-  const handleCopy = useCallback(async () => {
-    if (!quote) return;
-    const text = quote.lines.map((l) => `${l.speaker}: ${l.text}`).join('\n');
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Clipboard unavailable; ignore silently.
-    }
-  }, [quote]);
+  const updateLineText = useCallback((index: number, text: string) => {
+    setLines((prev) => {
+      const next = [...prev];
+      next[index] = { ...next[index]!, text };
+      return next;
+    });
+  }, []);
+
+  const formatFor = useCallback((format: CopyFormat): string => {
+    if (format === 'text') return lines.map((l) => `${l.speaker}: ${l.text}`).join('\n');
+    if (format === 'discord')
+      return lines.map((l) => `**${l.speaker}:** ${l.text}`).join('\n');
+    return lines
+      .map((l) => `<p><strong>${l.speaker}:</strong> ${l.text}</p>`)
+      .join('\n');
+  }, [lines]);
+
+  const handleCopy = useCallback(
+    async (format: CopyFormat) => {
+      try {
+        await navigator.clipboard.writeText(formatFor(format));
+        setCopiedFormat(format);
+        setTimeout(() => setCopiedFormat(null), 2000);
+      } catch {
+        // Clipboard unavailable; ignore silently.
+      }
+    },
+    [formatFor],
+  );
+
+  const copyLabel = (format: CopyFormat, label: React.ReactNode) => (
+    <button
+      onClick={() => handleCopy(format)}
+      className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-600 transition-all duration-200 ease-out hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-[0.96]"
+    >
+      {copiedFormat === format ? (
+        <>
+          <Check className="h-3.5 w-3.5" weight="bold" />
+          Copied
+        </>
+      ) : (
+        label
+      )}
+    </button>
+  );
 
   return (
     <div className="space-y-6">
@@ -149,39 +230,62 @@ export default function IncorrectQuoteGeneratorDemo() {
         <div className="card-surface flex items-center justify-center px-6 py-10">
           <p className="text-center text-sm text-stone-500">
             Add your character names, pick a mood, then hit “Generate Quote”
-            for a fake conversation.
+            for a fake conversation. Lines are editable after generating.
           </p>
         </div>
       ) : (
         <div className="space-y-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="text-sm font-semibold text-stone-700">
               {getMoodLabel(quote.mood)} incorrect quote
+              <span className="ml-2 text-xs font-normal text-stone-400">
+                click any line to edit
+              </span>
             </p>
-            <button
-              onClick={handleCopy}
-              className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-600 transition-all duration-200 ease-out hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-[0.96]"
-            >
-              {copied ? (
-                <>
-                  <Check className="h-3.5 w-3.5" weight="bold" />
-                  Copied
-                </>
-              ) : (
+            <div className="flex flex-wrap gap-1.5">
+              {copyLabel('text', (
                 <>
                   <Copy className="h-3.5 w-3.5" />
-                  Copy Quote
+                  Copy
                 </>
-              )}
-            </button>
+              ))}
+              {copyLabel('discord', (
+                <>
+                  <DiscordLogo className="h-3.5 w-3.5" />
+                  Discord
+                </>
+              ))}
+              {copyLabel('html', (
+                <>
+                  <FileHtml className="h-3.5 w-3.5" />
+                  HTML
+                </>
+              ))}
+            </div>
           </div>
-          <div className="card-surface space-y-2 px-5 py-4">
-            {quote.lines.map((line, i) => (
-              <p key={i} className="text-sm leading-relaxed text-stone-700">
-                <span className="font-semibold text-stone-900">{line.speaker}:</span>{' '}
-                {line.text}
-              </p>
-            ))}
+          <div className="card-surface px-5 py-4">
+            {scene && (
+              <p className="mb-2 text-xs italic text-stone-400">{scene}</p>
+            )}
+            <div className="space-y-1">
+              {lines.map((line, i) => (
+                <div key={i} className="flex items-baseline gap-1.5">
+                  <span className="shrink-0 text-sm font-semibold text-stone-900">
+                    {line.speaker}:
+                  </span>
+                  <EditableLine
+                    value={line.text}
+                    onChange={(v) => updateLineText(i, v)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        handleGenerate();
+                      }
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <button
             onClick={handleGenerate}

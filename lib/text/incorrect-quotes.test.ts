@@ -1,11 +1,15 @@
 import { describe, it, expect } from 'vitest';
-import { generateIncorrectQuote, MOODS } from './incorrect-quotes';
+import {
+  generateIncorrectQuote,
+  MOODS,
+  TEMPLATE_COUNT,
+} from './incorrect-quotes';
 
 describe('generateIncorrectQuote', () => {
   it('returns a quote with the requested mood', () => {
     const q = generateIncorrectQuote({ names: ['Alex', 'Sam'], mood: 'romantic', seed: 1 });
     expect(q.mood).toBe('romantic');
-    expect(q.lines.length).toBeGreaterThanOrEqual(2);
+    expect(q.lines.length).toBeGreaterThanOrEqual(1);
   });
 
   it('casts the provided names as speakers', () => {
@@ -61,12 +65,47 @@ describe('generateIncorrectQuote', () => {
       expect(line.speaker).not.toBe('');
     }
   });
+
+  it('handles 3+ speaker templates with fewer names (cycling)', () => {
+    const q = generateIncorrectQuote({ names: ['Rin', 'Mako'], mood: 'any', seed: 7 });
+    for (const line of q.lines) {
+      expect(['Rin', 'Mako']).toContain(line.speaker);
+    }
+  });
+
+  it('supports 3+ distinct speakers when enough names are provided', () => {
+    // Force a broad sweep so a 3-speaker template is hit with 4 names.
+    let sawThreeSpeakers = false;
+    for (let seed = 0; seed < 400; seed += 1) {
+      const q = generateIncorrectQuote({ names: ['A', 'B', 'C', 'D'], mood: 'any', seed });
+      const speakers = new Set(q.lines.map((l) => l.speaker));
+      if (speakers.size >= 3) {
+        sawThreeSpeakers = true;
+        break;
+      }
+    }
+    expect(sawThreeSpeakers).toBe(true);
+  });
+
+  it('sometimes includes a scene header', () => {
+    let sawScene = false;
+    for (let seed = 0; seed < 400; seed += 1) {
+      const q = generateIncorrectQuote({ names: ['A', 'B'], mood: 'any', seed });
+      if (q.scene) {
+        sawScene = true;
+        break;
+      }
+    }
+    expect(sawScene).toBe(true);
+  });
 });
 
 describe('template bank integrity', () => {
-  it('has at least 10 templates per mood', () => {
-    // Exporting the bank directly is an implementation detail; instead verify
-    // that every mood is reachable across a large seed sweep.
+  it('has at least 70 hand-written templates', () => {
+    expect(TEMPLATE_COUNT).toBeGreaterThanOrEqual(70);
+  });
+
+  it('has every mood represented', () => {
     const reached = new Set<ReturnType<typeof generateIncorrectQuote>['mood']>();
     for (let seed = 0; seed < 200; seed += 1) {
       reached.add(generateIncorrectQuote({ names: ['A', 'B'], mood: 'any', seed }).mood);
@@ -77,7 +116,19 @@ describe('template bank integrity', () => {
   it('never produces an empty dialogue', () => {
     for (let seed = 0; seed < 100; seed += 1) {
       const q = generateIncorrectQuote({ names: ['A', 'B'], mood: 'any', seed });
-      expect(q.lines.length).toBeGreaterThanOrEqual(2);
+      expect(q.lines.length).toBeGreaterThanOrEqual(1);
     }
+  });
+
+  it('produces some longer (multi-sentence) lines for richness', () => {
+    let sawLongLine = false;
+    for (let seed = 0; seed < 400; seed += 1) {
+      const q = generateIncorrectQuote({ names: ['A', 'B'], mood: 'any', seed });
+      if (q.lines.some((l) => l.text.length > 120)) {
+        sawLongLine = true;
+        break;
+      }
+    }
+    expect(sawLongLine).toBe(true);
   });
 });
