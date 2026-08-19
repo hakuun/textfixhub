@@ -182,19 +182,19 @@ export const ALL_TOOLS: ToolMeta[] = [
 /** Cross-link mapping: which tools are "related" to which */
 export const RELATED_TOOLS: Record<string, string[]> = {
   alphabetizer: ['line-break-remover', 'random-noun-generator', 'linkedin-text-formatter'],
-  'line-break-remover': ['alphabetizer', 'sentence-counter'],
+  'line-break-remover': ['alphabetizer', 'sentence-counter', 'random-nfl-team-generator'],
   'sentence-counter': ['line-break-remover', 'random-sentence-generator', 'linkedin-text-formatter', 'syllable-counter'],
   'random-sentence-generator': ['random-noun-generator', 'sentence-counter', 'fake-word-generator', 'incorrect-quote-generator'],
   'random-noun-generator': ['random-sentence-generator', 'alphabetizer', 'fake-word-generator'],
-  'syllable-counter': ['sentence-counter', 'line-break-remover'],
-  'random-nfl-team-generator': ['random-noun-generator', 'fake-word-generator'],
+  'syllable-counter': ['sentence-counter', 'line-break-remover', 'random-nfl-team-generator'],
+  'random-nfl-team-generator': ['line-break-remover', 'syllable-counter', 'incorrect-quote-generator', 'wedding-hashtag-generator'],
   'word-combiner': ['fake-word-generator', 'random-noun-generator', 'wedding-hashtag-generator', 'incorrect-quote-generator'],
   'fake-word-generator': ['random-noun-generator', 'random-sentence-generator', 'word-combiner', 'incorrect-quote-generator'],
-  'incorrect-quote-generator': ['fake-word-generator', 'random-sentence-generator', 'word-combiner'],
+  'incorrect-quote-generator': ['fake-word-generator', 'random-sentence-generator', 'word-combiner', 'random-nfl-team-generator'],
   'mirror-text': ['linkedin-text-formatter', 'word-combiner', 'small-text-generator'],
   'linkedin-text-formatter': ['sentence-counter', 'alphabetizer', 'mirror-text', 'small-text-generator'],
   'small-text-generator': ['linkedin-text-formatter', 'mirror-text', 'word-combiner'],
-  'wedding-hashtag-generator': ['word-combiner', 'fake-word-generator', 'random-noun-generator'],
+  'wedding-hashtag-generator': ['word-combiner', 'fake-word-generator', 'random-noun-generator', 'random-nfl-team-generator'],
 };
 
 /** Look up a tool by slug */
