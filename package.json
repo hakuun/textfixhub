@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "generate:markdown": "tsx scripts/generate-markdown.ts",
+    "build": "tsx scripts/generate-markdown.ts && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
@@ -24,6 +25,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "tailwindcss": "^4.0.0",
+    "tsx": "^4.23.12",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
   },

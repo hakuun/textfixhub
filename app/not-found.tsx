@@ -25,6 +25,30 @@ export default function NotFound() {
       >
         Back to Home
       </Link>
+      <p className="mt-6 text-sm text-stone-500">
+        Or try{' '}
+        <Link
+          href="/"
+          className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+        >
+          all tools
+        </Link>
+        , the{' '}
+        <a
+          href="/sitemap.xml"
+          className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+        >
+          sitemap
+        </a>
+        , or the{' '}
+        <a
+          href="/llms.txt"
+          className="text-emerald-600 hover:text-emerald-700 underline decoration-emerald-200 hover:decoration-emerald-400 transition-colors"
+        >
+          agent guide
+        </a>
+        .
+      </p>
     </div>
   );
 }

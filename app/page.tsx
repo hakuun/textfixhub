@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ALL_TOOLS } from '@/lib/text/types';
+import { homepageJsonLd } from '@/lib/schema';
 import ToolCard from '@/components/ToolCard';
 import JsonLd from '@/components/JsonLd';
 
@@ -173,16 +174,7 @@ export default function Home() {
         </div>
       </section>
 
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'TextFixHub',
-          description:
-            'Free online text tools to alphabetize lists, remove line breaks, count sentences, and generate random text. All processing happens locally in your browser.',
-          url: 'https://www.textfixhub.com',
-        }}
-      />
+      <JsonLd data={homepageJsonLd} />
     </div>
   );
 }
